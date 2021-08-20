@@ -30,7 +30,7 @@
                  <label for="text" class="col-sm-2 col-form-label">Grade ID</label> 
                     <div class="col-sm-7" >
                       <div class="form-group">
-                      <select id="grade" name="grade" value="{{ $designation->designation}}" class="custom-select">
+                      <select id="grade" name="grade_id" value="{{ $designation->grade_id}}" class="custom-select">
                         <option value="1">Grade 1</option>
                         <option value="2">Grade 2</option>
                         <option value="3">Grade 3</option>
@@ -55,7 +55,7 @@
                  <label for="text" class="col-sm-2 col-form-label">Designation</label> 
                     <div class="col-sm-7" >
                       <div class="form-group">
-                        <input id="name" name="designation" value="{{ $designation->name}}" placeholder="Senior ICT Officer" type="text" class="form-control">
+                        <input id="name" name="name" value="{{ $designation->name}}" placeholder="Senior ICT Officer" type="text" class="form-control">
                     </div>
                   </div>
                 </div>

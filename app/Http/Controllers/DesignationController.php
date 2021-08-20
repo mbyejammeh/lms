@@ -76,14 +76,14 @@ class DesignationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Designation $designation)
     {
         $request->validate([
             'name' => 'required',
             'grade_id' => 'required',
         ]);
 
-        $grade->update($request->all());
+        $designation->update($request->all());
 
         return redirect()->route('designations.index')->with('success','Designation Updated Successfully');
     }
