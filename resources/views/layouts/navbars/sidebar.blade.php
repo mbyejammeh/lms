@@ -5,7 +5,7 @@
       Tip 2: you can also add an image using data-image tag
   -->
   <div class="logo">
-    <a href="https://creative-tim.com/" class="simple-text logo-normal">
+    <a href="#" class="simple-text logo-normal">
       {{ __('CSRLS') }}
     </a>
   </div>
@@ -16,7 +16,7 @@
           <i class="material-icons">dashboard</i>
             <p>{{ __('Dashboard') }}</p>
         </a>
-      </li>      
+      </li>
       <li class="nav-item{{ $activePage == 'profile' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('profile.edit') }}">
             <span class="sidebar-mini"> <i class="material-icons">person</i> </span>
@@ -47,7 +47,7 @@
             <p>{{ __('Loan Type') }}</p>
         </a>
       </li>
-     
+
       <li class="nav-item{{ $activePage == 'retrieve' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('grades.index') }}">
           <i class="material-icons">pin</i>
