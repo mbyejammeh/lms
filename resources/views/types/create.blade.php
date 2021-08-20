@@ -1,36 +1,46 @@
-@extends('layouts.app', ['activePage' => 'designation', 'titlePage' => __('Edit Designation')])
+@extends('layouts.app', ['activePage' => 'designation', 'titlePage' => __('Add Designation')])
 
-
-@section('content')
 @if ($errors->any())
-<div class="alert alert-danger">
-    <ul>
-        @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-        @endforeach
-    </ul>
-</div>
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
 @endif
 
+@section('content')
   <div class="content">
     <div class="container-fluid">      
       <div class="row">
         <div class="col-md-12">
-            <form action="{{ route('designations.update',$designation->id) }}" method="POST" class="form-horizontal"> 
-              @csrf          
-              @method('PUT')
+            <form method="post" action="{{ route('designations.store') }}" class="form-horizontal"> 
+            @csrf           
+
             <div class="card ">
               <div class="card-header card-header-primary">
-                <h4 class="card-title">{{ __('Editinging Designation') }}</h4>
+                <h4 class="card-title">{{ __('Adding Different Designations') }}</h4>
                 <p class="card-category">{{ __('Civil Servant Designations') }}</p>
               </div>
 
               <div class="card-body ">
                 <div class="row">
-                 <label for="text" class="col-sm-2 col-form-label">Grade ID</label> 
+                 <label for="text" class="col-sm-2 col-form-label">Designation</label> 
                     <div class="col-sm-7" >
                       <div class="form-group">
-                      <select id="grade" name="grade" value="{{ $designation->designation}}" class="custom-select">
+                      <input id="name" name="name" placeholder="Senior ICT Officer" type="text" class="form-control">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card-body ">
+                <div class="row">
+                 <label for="text" class="col-sm-2 col-form-label">Grade</label> 
+                    <div class="col-sm-7" >
+                      <div class="form-group">
+                      <select id="grade" name="grade_id" class="custom-select">
                         <option value="1">Grade 1</option>
                         <option value="2">Grade 2</option>
                         <option value="3">Grade 3</option>
@@ -47,23 +57,10 @@
                     </div>
                   </div>
                 </div>
-              </div>  
-
-
-              <div class="card-body ">
-                <div class="row">
-                 <label for="text" class="col-sm-2 col-form-label">Designation</label> 
-                    <div class="col-sm-7" >
-                      <div class="form-group">
-                        <input id="name" name="designation" value="{{ $designation->name}}" placeholder="Senior ICT Officer" type="text" class="form-control">
-                    </div>
-                  </div>
-                </div>
-              </div>
-                 
+              </div>           
 
               <div class="card-footer ml-auto mr-auto">
-                <button type="submit" class="btn btn-primary">{{ __('Update Designation') }}</button>
+                <button type="submit" class="btn btn-primary">{{ __('Add Designation') }}</button>
               </div>
             </div>
           </form>

@@ -1,4 +1,4 @@
-@extends('layouts.app', ['activePage' => 'loans', 'titlePage' => __('Show Grade')])
+@extends('layouts.app', ['activePage' => 'designation', 'titlePage' => __('Show Designation')])
 
 
 
@@ -17,26 +17,22 @@
         <div class="col-lg-12 col-md-12">
           <div class="card">
             <div class="card-header card-header-warning">
-              <h4 class="card-title">Grade</h4>
-              <p class="card-category">Salary Scale</p>
+              <h4 class="card-title">Designation</h4>
+              <p class="card-category">Civil Servant Designations</p>
             </div>
             <div class="card-body table-responsive">
               <table class="table table-hover">
                 <thead class="text-warning">
                   <th>ID</th>
                   <th>Name</th>
-                  <th>Description</th>
-                  <th>Duration</th>
-                  <th>Interest</th>
+                  <th>Grade ID</th>
                 </thead>
                 <tbody>
                  
                   <tr>
-                    <td>{{ $type->id }}</td>
-                    <td>{{ $type->name }}</td>
-                    <td>{{ $type->description }}</td>
-                    <td>{{ $type->duration }}</td>
-                    <td>{{ $type->interest }}</td>
+                    <td>{{ $designation->id }}</td>
+                    <td>{{ $designation->name }}</td>
+                    <td>{{ $designation->grade_id }}</td>
                     <td>
                   </tr>
                  
