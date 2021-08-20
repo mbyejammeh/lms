@@ -41,7 +41,7 @@
                  <label for="text" class="col-sm-2 col-form-label">Description</label> 
                     <div class="col-sm-7" >
                       <div class="form-group">
-                        <textarea id="description" name="description" value="{{ $type->description}}" cols="40" rows="5" class="form-control"></textarea>
+                        <textarea id="description" name="description" cols="40" rows="5" class="form-control">{{$type->description}}</textarea>
                     </div>
                   </div>
                 </div>
