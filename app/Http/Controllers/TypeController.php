@@ -78,9 +78,18 @@ class TypeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,Type $type)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'duration' => 'required',
+            'interest' => 'required',
+        ]);
+
+        $type->update($request->all());
+
+        return redirect()->route('types.index')->with('success','Loan Type Updated Successfully');
     }
 
     /**
@@ -89,8 +98,11 @@ class TypeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Type $type)
     {
-        //
+        $type->delete();
+
+       return redirect()->route('types.index')
+                       ->with('success','Loan Type Deleted Successfully');
     }
 }

@@ -1,4 +1,4 @@
-@extends('layouts.app', ['activePage' => 'designation', 'titlePage' => __('Edit Designation')])
+@extends('layouts.app', ['activePage' => 'type', 'titlePage' => __('Edit Loan Type')])
 
 
 @section('content')
@@ -16,50 +16,59 @@
     <div class="container-fluid">      
       <div class="row">
         <div class="col-md-12">
-            <form action="{{ route('designations.update',$designation->id) }}" method="POST" class="form-horizontal"> 
+            <form action="{{ route('types.update',$type->id) }}" method="POST" class="form-horizontal"> 
               @csrf          
               @method('PUT')
             <div class="card ">
               <div class="card-header card-header-primary">
-                <h4 class="card-title">{{ __('Editinging Designation') }}</h4>
-                <p class="card-category">{{ __('Civil Servant Designations') }}</p>
+                <h4 class="card-title">{{ __('Editing Loan Type') }}</h4>
+                <p class="card-category">{{ __('Civil Servant Loan Type') }}</p>
               </div>
 
               <div class="card-body ">
                 <div class="row">
-                 <label for="text" class="col-sm-2 col-form-label">Grade ID</label> 
+                 <label for="text" class="col-sm-2 col-form-label">Name</label> 
                     <div class="col-sm-7" >
                       <div class="form-group">
-                      <select id="grade" name="grade" value="{{ $designation->designation}}" class="custom-select">
-                        <option value="1">Grade 1</option>
-                        <option value="2">Grade 2</option>
-                        <option value="3">Grade 3</option>
-                        <option value="4">Grade 4</option>
-                        <option value="5">Grade 5</option>
-                        <option value="6">Grade 6</option>
-                        <option value="7">Grade 7</option>
-                        <option value="8">Grade 8</option>
-                        <option value="9">Grade 9</option>
-                        <option value="10">Grade 10</option>
-                        <option value="11">Grade 11</option>
-                        <option value="12">Grade 12</option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-              </div>  
-
-
-              <div class="card-body ">
-                <div class="row">
-                 <label for="text" class="col-sm-2 col-form-label">Designation</label> 
-                    <div class="col-sm-7" >
-                      <div class="form-group">
-                        <input id="name" name="designation" value="{{ $designation->name}}" placeholder="Senior ICT Officer" type="text" class="form-control">
+                      <input id="name" name="name" placeholder="Car Loan" value="{{ $type->name}}" type="text" class="form-control">
                     </div>
                   </div>
                 </div>
               </div>
+
+              <div class="card-body ">
+                <div class="row">
+                 <label for="text" class="col-sm-2 col-form-label">Description</label> 
+                    <div class="col-sm-7" >
+                      <div class="form-group">
+                        <textarea id="description" name="description" value="{{ $type->description}}" cols="40" rows="5" class="form-control"></textarea>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card-body ">
+                <div class="row">
+                 <label for="text" class="col-sm-2 col-form-label">Duration</label> 
+                    <div class="col-sm-7" >
+                      <div class="form-group">
+                      <input id="duration" name="duration" value="{{ $type->duration}}" placeholder="24 Months" type="text" class="form-control">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+<div class="card-body ">
+  <div class="row">
+   <label for="text" class="col-sm-2 col-form-label">Interest</label> 
+      <div class="col-sm-7" >
+        <div class="form-group">
+        <input id="interest" name="interest" value="{{ $type->interest}}" placeholder="0.25%" type="text" class="form-control">
+      </div>
+    </div>
+  </div>
+</div>
                  
 
               <div class="card-footer ml-auto mr-auto">

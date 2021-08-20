@@ -41,18 +41,13 @@
             <p>{{ __('Payments') }}</p>
         </a>
       </li>
-      <li class="nav-item{{ $activePage == 'table' ? ' active' : '' }}">
-        <a class="nav-link" href="{{ route('table') }}">
+      <li class="nav-item{{ $activePage == 'type' ? ' active' : '' }}">
+        <a class="nav-link" href="{{ route('types.index') }}">
           <i class="material-icons">style</i>
-            <p>{{ __('Loan Types') }}</p>
-        </a>
-      </li>
-      <li class="nav-item{{ $activePage == 'table' ? ' active' : '' }}">
-        <a class="nav-link" href="{{ route('table') }}">
-          <i class="material-icons">next_plan</i>
             <p>{{ __('Loan Type') }}</p>
         </a>
       </li>
+     
       <li class="nav-item{{ $activePage == 'retrieve' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('grades.index') }}">
           <i class="material-icons">pin</i>

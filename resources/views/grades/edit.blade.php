@@ -21,7 +21,7 @@
               @method('PUT')
             <div class="card ">
               <div class="card-header card-header-primary">
-                <h4 class="card-title">{{ __('Editinging Grade & Basic Salary') }}</h4>
+                <h4 class="card-title">{{ __('Editing Grade & Basic Salary') }}</h4>
                 <p class="card-category">{{ __('Civil Servant Grading Scale') }}</p>
               </div>
 

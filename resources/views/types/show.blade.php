@@ -1,4 +1,4 @@
-@extends('layouts.app', ['activePage' => 'designation', 'titlePage' => __('Show Designation')])
+@extends('layouts.app', ['activePage' => 'type', 'titlePage' => __('Show Loan Type')])
 
 
 
@@ -25,14 +25,18 @@
                 <thead class="text-warning">
                   <th>ID</th>
                   <th>Name</th>
-                  <th>Grade ID</th>
+                  <th>Description</th>
+                  <th>Duration</th>
+                  <th>Interest</th>
                 </thead>
                 <tbody>
                  
                   <tr>
-                    <td>{{ $designation->id }}</td>
-                    <td>{{ $designation->name }}</td>
-                    <td>{{ $designation->grade_id }}</td>
+                    <td>{{ $type->id }}</td>
+                    <td>{{ $type->name }}</td>
+                    <td>{{ $type->description }}</td>
+                    <td>{{ $type->duration }}</td>
+                    <td>{{ $type->interest }}</td>
                     <td>
                   </tr>
                  
