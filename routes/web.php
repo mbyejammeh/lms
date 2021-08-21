@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GradeController;
 use App\Http\Controllers\DesignationController;
 use App\Http\Controllers\TypeController;
+use App\Http\Controllers\BorrowerController;
 
 
 /*
@@ -20,6 +21,7 @@ use App\Http\Controllers\TypeController;
 Route::resource('grades', GradeController::class);
 Route::resource('designations', DesignationController::class);
 Route::resource('types', TypeController::class);
+Route::resource('borrowers', BorrowerController::class);
 
 
 Route::get('/', function () {

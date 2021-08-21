@@ -12,4 +12,8 @@ class Type extends Model
     protected $fillable = [
         'name', 'description', 'duration', 'interest'
       ];
+
+      public function borrowers(){
+        return $this->belongsToMany(Borrower::class);
+    }
 }

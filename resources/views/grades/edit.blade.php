@@ -25,7 +25,7 @@
                 <p class="card-category">{{ __('Civil Servant Grading Scale') }}</p>
               </div>
 
-<!--              <div class="card-body ">
+<!--             <div class="card-body ">
                 <div class="row">
                  <label for="text" class="col-sm-2 col-form-label">Grade</label>
                     <div class="col-sm-7" >
@@ -65,14 +65,12 @@
              <label for="text" class="col-sm-2 col-form-label">Salary</label>
                 <div class="col-sm-7" >
                   <div class="form-group">
-                  <input id="salary" name="salary" value="{{ $grade->salary}}" placeholder=" type="text" class="form-control">
+                  <input id="salary" name="salary" value="{{ $grade->salary}}" placeholder="" type="text" class="form-control">
                 </div>
               </div>
             </div>
           </div>
 
-
-                <?php  echo $grade ?>
 
               <div class="card-footer ml-auto mr-auto">
                 <button type="submit" class="btn btn-primary">{{ __('Update Salary') }}</button>

@@ -12,4 +12,17 @@ class Designation extends Model
     protected $fillable = [
         'name', 'grade_id'
       ];
+
+      public function grades(){
+        return $this->hasOne(Grade::class);
+    }
+
+    public function guarantors(){
+      return $this->belongsToMany(Guarantor::class);
+  }
+
+  public function borrowers(){
+    return $this->belongsToMany(Borrower::class);
+}
+
 }

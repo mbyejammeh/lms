@@ -12,4 +12,16 @@ class Grade extends Model
     protected $fillable = [
       'name', 'salary'
     ];
+
+    public function designations(){
+      return $this->hasOne(Designation::class);
+  }
+
+  public function borrowers(){
+    return $this->belongsToMany(Borrower::class);
+}
+
+public function guarantors(){
+  return $this->belongsToMany(Guarantor::class);
+}
 }
