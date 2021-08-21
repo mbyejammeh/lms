@@ -4,7 +4,7 @@
 
 @section('content')
   <div class="content">
-    <div class="container-fluid"> 
+    <div class="container-fluid">
 
       @if ($message = Session::get('success'))
         <div class="alert alert-success">
@@ -12,8 +12,8 @@
         </div>
       @endif
 
-      
-      <div class="row">        
+
+      <div class="row">
         <div class="col-lg-12 col-md-12">
           <div class="card">
             <div class="card-header card-header-warning">
@@ -28,14 +28,14 @@
                   <th>Salary</th>
                 </thead>
                 <tbody>
-                 
+
                   <tr>
                     <td>{{ $grade->id }}</td>
-                    <td>{{ $grade->grade }}</td>
+                    <td>{{ $grade->name }}</td>
                     <td>{{ $grade->salary }}</td>
                     <td>
                   </tr>
-                 
+
                 </tbody>
               </table>
             </div>

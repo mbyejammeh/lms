@@ -4,7 +4,7 @@
 
 @section('content')
   <div class="content">
-    <div class="container-fluid"> 
+    <div class="container-fluid">
 
       @if ($message = Session::get('success'))
         <div class="alert alert-success">
@@ -15,7 +15,7 @@
       <div class="col-md-2">
         <a class="nav-link" href="{{ route('grades.create') }}"> <Button class="btn btn-primary btn-block">Add Grade</Button></a>
       </div>
-      <div class="row">        
+      <div class="row">
         <div class="col-lg-12 col-md-12">
           <div class="card">
             <div class="card-header card-header-warning">
@@ -34,7 +34,7 @@
                   @foreach ($grades as $grade)
                   <tr>
                     <td>{{ $grade->id }}</td>
-                    <td>{{ $grade->grade }}</td>
+                    <td>{{ $grade->name }}</td>
                     <td>{{ $grade->salary }}</td>
                     <td  class="form-inline">
                       <button type="button" rel="tooltip" title="Edit" class="btn btn-primary btn-link btn-sm">
@@ -44,9 +44,9 @@
                         <a class="nav-link" href="{{ route('grades.show',$grade->id) }}"> <i class="material-icons">visibility</i></a>
                       </button>
 
-                    
+
                       <form action="{{ route('grades.destroy',$grade->id) }}" method="POST">
-   
+
                       @csrf
                       @method('DELETE')
                           <button type="submit" rel="tooltip" title="Delete" class="btn btn-info btn-link btn-sm"><i class="material-icons">close</i></button>

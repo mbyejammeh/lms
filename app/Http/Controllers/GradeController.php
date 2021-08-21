@@ -38,7 +38,7 @@ class GradeController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'grade' => 'required',
+            'name' => 'required',
             'salary' => 'required',
         ]);
 
@@ -79,7 +79,7 @@ class GradeController extends Controller
     public function update(Request $request, Grade $grade)
     {
         $request->validate([
-            'grade' => 'required',
+            'name' => 'required',
             'salary' => 'required',
         ]);
 
