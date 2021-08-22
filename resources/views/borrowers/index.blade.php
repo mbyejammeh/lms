@@ -4,7 +4,7 @@
 
 @section('content')
   <div class="content">
-    <div class="container-fluid"> 
+    <div class="container-fluid">
 
       @if ($message = Session::get('success'))
         <div class="alert alert-success">
@@ -15,7 +15,7 @@
       <div class="col-md-2">
         <a class="nav-link" href="{{ route('borrowers.create') }}"> <Button class="btn btn-primary btn-block">Add Borrower</Button></a>
       </div>
-      <div class="row">        
+      <div class="row">
         <div class="col-lg-12 col-md-12">
           <div class="card">
             <div class="card-header card-header-warning">
@@ -27,9 +27,14 @@
                 <thead class="text-warning">
                   <th>ID</th>
                   <th>Payroll</th>
-                  <th>Borrower Info</th>
-                  <th>Employment Info</th>
+                  <th>First Name</th>
+                  <th>Middle Name</th>
+                  <th>Last Name</th>
+                  <th>Designation / Salary</th>
                   <th>Loan Type</th>
+                  <th>Phone Number</th>
+                  <th>Email</th>
+
                   <th>Loan Status</th>
                   <th>Action</th>
                 </thead>
@@ -38,19 +43,14 @@
                   <tr>
                     <td>{{ $borrower->id }}</td>
                     <td>{{ $borrower->payroll_number }}</td>
-                    <td>{{ $borrower->first_name }} {{ $borrower->middle_name }} {{ $borrower->last_name }}<br>
-                      {{ $borrower->date_of_birth }}<br>
-                      {{ $borrower->phone1 }}<br>
-                      {{ $borrower->phone2 }}<br>
-                      {{ $borrower->address }}<br>
-                      {{ $borrower->email }}<br>                    
-                    </td>
-                    <td>{{ $borrower->designation_id }}<br>
-                      {{ $borrower->grade_id }}<br>
-                      {{ $borrower->employment_date }}<br>
-                      </td>
-                    <td>{{ $borrower->type_id }}</td>
-                    <td>{{ $borrower->status }}</td>
+                    <td>{{ $borrower->first_name}}</td>
+                    <td>{{ $borrower->middle_name}}</td>
+                    <td>{{ $borrower->last_name }}</td>
+                    <td> {{ $borrower->designation->name }}</td>
+                    <td> {{ $borrower->type->name }}</td>
+                    <td> {{ $borrower->phone2 }} / {{ $borrower->phone2 }}</td>
+                    <td> {{ $borrower->email }}</td>
+                    <td> {{ $borrower->status }}</td>
                     <td  class="form-inline">
                       <button type="button" rel="tooltip" title="Edit" class="btn btn-primary btn-link btn-sm">
                         <a class="nav-link" href="{{ route('borrowers.edit',$borrower->id) }}"> <i class="material-icons">edit</i></a>
@@ -59,9 +59,9 @@
                         <a class="nav-link" href="{{ route('borrowers.show',$borrower->id) }}"> <i class="material-icons">visibility</i></a>
                       </button>
 
-                    
+
                       <form action="{{ route('borrowers.destroy',$borrower->id) }}" method="POST">
-   
+
                       @csrf
                       @method('DELETE')
                           <button type="submit" rel="tooltip" title="Delete" class="btn btn-info btn-link btn-sm"><i class="material-icons">close</i></button>
@@ -79,4 +79,3 @@
     </div>
   </div>
 @endsection
-

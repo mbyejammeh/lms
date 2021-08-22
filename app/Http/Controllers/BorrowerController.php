@@ -43,7 +43,7 @@ class BorrowerController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([            
+        $request->validate([
             'first_name' => 'required',
             'middle_name' => 'nullable',
             'last_name' => 'required',
@@ -54,9 +54,9 @@ class BorrowerController extends Controller
             'email' => 'nullable',
             'employment_date' => 'required',
             'payroll_number' => 'required',
-            'designation_id' => 'required',            
-            'grade_id' => 'required',            
-            'type_id' => 'required',            
+            'designation_id' => 'required',
+            'grade_id' => 'required',
+            'type_id' => 'required',
         ]);
 
         Borrower::create($request->all());
@@ -106,9 +106,9 @@ class BorrowerController extends Controller
             'email' => 'nullable',
             'employment_date' => 'required',
             'payroll_number' => 'required',
-            'designation_id' => 'required',            
-            'grade_id' => 'required',            
-            'type_id' => 'required', 
+            'designation_id' => 'required',
+            'grade_id' => 'required',
+            'type_id' => 'required',
         ]);
 
         $borrower->update($request->all());

@@ -12,11 +12,11 @@
 
 @section('content')
   <div class="content">
-    <div class="container-fluid">      
+    <div class="container-fluid">
       <div class="row">
         <div class="col-md-12">
-            <form method="post" action="{{ route('types.store') }}" class="form-horizontal"> 
-            @csrf           
+            <form method="post" action="{{ route('types.store') }}" class="form-horizontal">
+            @csrf
 
             <div class="card ">
               <div class="card-header card-header-primary">
@@ -26,7 +26,7 @@
 
               <div class="card-body ">
                 <div class="row">
-                 <label for="text" class="col-sm-2 col-form-label">Name</label> 
+                 <label for="text" class="col-sm-2 col-form-label">Name</label>
                     <div class="col-sm-7" >
                       <div class="form-group">
                       <input id="name" name="name" placeholder="Car Loan" type="text" class="form-control">
@@ -35,20 +35,20 @@
                 </div>
               </div>
 
-              <div class="card-body ">
-                <div class="row">
-                 <label for="text" class="col-sm-2 col-form-label">Description</label> 
-                    <div class="col-sm-7" >
-                      <div class="form-group">
-                        <textarea id="description" name="description" cols="40" rows="5" class="form-control"></textarea>
+                <div class="card-body ">
+                    <div class="row">
+                        <label for="text" class="col-sm-2 col-form-label">Description</label>
+                        <div class="col-sm-7" >
+                            <div class="form-group">
+                                <input id="description" name="description" placeholder="Loan Description" type="text" class="form-control">
+                            </div>
+                        </div>
                     </div>
-                  </div>
                 </div>
-              </div>
 
               <div class="card-body ">
                 <div class="row">
-                 <label for="text" class="col-sm-2 col-form-label">Duration</label> 
+                 <label for="text" class="col-sm-2 col-form-label">Duration</label>
                     <div class="col-sm-7" >
                       <div class="form-group">
                       <input id="duration" name="duration" placeholder="24 Months" type="text" class="form-control">
@@ -60,21 +60,21 @@
 
 <div class="card-body ">
   <div class="row">
-   <label for="text" class="col-sm-2 col-form-label">Interest</label> 
+   <label for="text" class="col-sm-2 col-form-label">Interest</label>
       <div class="col-sm-7" >
         <div class="form-group">
         <input id="interest" name="interest" placeholder="0.25%" type="text" class="form-control">
       </div>
     </div>
   </div>
-</div>           
+</div>
 
               <div class="card-footer ml-auto mr-auto">
                 <button type="submit" class="btn btn-primary">{{ __('Add Loan Type') }}</button>
               </div>
             </div>
           </form>
-          
+
         </div>
       </div>
     </div>
