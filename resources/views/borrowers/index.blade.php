@@ -32,6 +32,7 @@
                   <th>Last Name</th>
                   <th>Designation / Salary</th>
                   <th>Loan Type</th>
+                  <th> Balance </th>
                   <th>Phone Number</th>
                   <th>Email</th>
 
@@ -48,6 +49,7 @@
                     <td>{{ $borrower->last_name }}</td>
                     <td> {{ $borrower->designation->name }}</td>
                     <td> {{ $borrower->type->name }}</td>
+                      <td class="text-danger font-weight-bold"> ( -D56,988.00) </td>
                     <td> {{ $borrower->phone2 }} / {{ $borrower->phone2 }}</td>
                     <td> {{ $borrower->email }}</td>
                     <td> {{ $borrower->status }}</td>
