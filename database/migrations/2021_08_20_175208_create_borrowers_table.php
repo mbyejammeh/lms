@@ -16,12 +16,13 @@ class CreateBorrowersTable extends Migration
         Schema::create('borrowers', function (Blueprint $table) {
             $table->id();
             $table->string('first_name');
+            $table->string('middle_name')->nullable();
             $table->string('last_name');
             $table->date('date_of_birth');
             $table->string('phone1');
-            $table->string('phone2');
+            $table->string('phone2')->nullable();
             $table->string('address');
-            $table->string('email');
+            $table->string('email')->nullable();
             $table->date('employment_date');
             $table->integer('payroll_number');
             $table->unsignedBigInteger('designation_id');

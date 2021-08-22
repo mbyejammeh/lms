@@ -23,14 +23,14 @@
             <span class="sidebar-normal">{{ __('User profile') }} </span>
         </a>
       </li>
-      <li class="nav-item{{ $activePage == 'table' ? ' active' : '' }}">
-        <a class="nav-link" href="{{ route('table') }}">
+      <li class="nav-item{{ $activePage == 'borrower' ? ' active' : '' }}">
+        <a class="nav-link" href="{{ route('borrowers.index') }}">
           <i class="material-icons">paid</i>
             <p>{{ __('Borrowers') }}</p>
         </a>
       </li>
-      <li class="nav-item{{ $activePage == 'table' ? ' active' : '' }}">
-        <a class="nav-link" href="{{ route('table') }}">
+      <li class="nav-item{{ $activePage == 'guarantor' ? ' active' : '' }}">
+        <a class="nav-link" href="{{ route('guarantors.index') }}">
           <i class="material-icons">people_alt</i>
             <p>{{ __('Guarantors') }}</p>
         </a>
