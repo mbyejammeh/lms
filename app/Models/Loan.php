@@ -10,7 +10,7 @@ class Loan extends Model
     use HasFactory;
 
     protected $fillable = [
-        'amount', 'borrower_id', 'type_id', 'purpose'
+        'amount', 'interest', 'borrower_id', 'type_id', 'purpose', 'payable_amount', 'monthly_payable' 
       ];
 
     public function borrower(){

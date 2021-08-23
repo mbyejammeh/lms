@@ -16,7 +16,9 @@ class LoanController extends Controller
      */
     public function index()
     {
-        //
+        $loans = Loan::all();
+
+        return view('loans.index', compact('loans'));
     }
 
     /**
@@ -26,7 +28,9 @@ class LoanController extends Controller
      */
     public function create()
     {
-        //
+        $borrowers = Borrower::all();
+        $types = Type::all();
+        return view('loans.create',compact('borrowers', 'types'));
     }
 
     /**
@@ -37,7 +41,19 @@ class LoanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([            
+            'amount' => 'required',
+            'interest' => 'required',
+            'borrower_id' => 'required',
+            'type_id' => 'required',
+            'purpose' => 'required',
+            'payable_amount' => 'required',
+            'monthly_payable' => 'required'
+        ]);
+
+        Loan::create($request->all());
+
+        return redirect()->route('loans.index')->with('success','Loans Created Successfully.');
     }
 
     /**
@@ -46,9 +62,9 @@ class LoanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Loan $loan)
     {
-        //
+        return view('loans.show',compact('loan'));
     }
 
     /**
@@ -57,9 +73,9 @@ class LoanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Loan $loan)
     {
-        //
+        return view('loans.edit',compact('loan'));
     }
 
     /**
@@ -69,9 +85,21 @@ class LoanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Loan $loan)
     {
-        //
+        $request->validate([
+            'amount' => 'required',
+            'interest' => 'required',
+            'borrower_id' => 'required',
+            'type_id' => 'required',
+            'purpose' => 'required',
+            'payable_amount' => 'required',
+            'monthly_payable' => 'required'
+        ]);
+
+        $borrower->update($request->all());
+
+        return redirect()->route('loans.index')->with('success','Loan Updated Successfully');
     }
 
     /**
@@ -80,8 +108,27 @@ class LoanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Loan $loan)
     {
-        //
+        $loan->delete();
+
+       return redirect()->route('loans.index')
+                       ->with('success','Loan Deleted Successfully');
+    }
+
+    public function calculator()
+    {
+        $loans = Loan::all();
+        $types = Type::all();
+
+        $simple_interest = $amount * $types->$interest * $types->$duration;
+        $payable_amount = $simple_interest + $amount;
+
+        $monthly_payable = $payable_amount / $types->$duration;
+
+        
+
+       return redirect()->route('loans.index')
+                       ->with('success','Loan Deleted Successfully');
     }
 }

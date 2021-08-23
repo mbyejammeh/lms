@@ -29,7 +29,6 @@
                   <th>Name</th>
                   <th>Description</th>
                   <th>Duration</th>
-                  <th>Interest</th>
                   <th>Action</th>
                 </thead>
                 <tbody>
@@ -39,7 +38,6 @@
                     <td>{{ $type->name }}</td>
                     <td>{{ $type->description }}</td>
                     <td>{{ $type->duration }}</td>
-                    <td>{{ $type->interest }}</td>
                     <td  class="form-inline">
                       <button type="button" rel="tooltip" title="Edit" class="btn btn-primary btn-link btn-sm">
                         <a class="nav-link" href="{{ route('types.edit',$type->id) }}"> <i class="material-icons">edit</i></a>

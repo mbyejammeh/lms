@@ -47,7 +47,12 @@
             <p>{{ __('Loan Type') }}</p>
         </a>
       </li>
-
+      <li class="nav-item{{ $activePage == 'loan' ? ' active' : '' }}">
+        <a class="nav-link" href="{{ route('loans.index') }}">
+          <i class="material-icons">style</i>
+            <p>{{ __('Loans') }}</p>
+        </a>
+      </li>
       <li class="nav-item{{ $activePage == 'retrieve' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('grades.index') }}">
           <i class="material-icons">pin</i>

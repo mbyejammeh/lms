@@ -57,20 +57,6 @@
                   </div>
                 </div>
               </div>
-
-
-<div class="card-body ">
-  <div class="row">
-   <label for="text" class="col-sm-2 col-form-label">Interest</label> 
-      <div class="col-sm-7" >
-        <div class="form-group">
-        <input id="interest" name="interest" value="{{ $type->interest}}" placeholder="0.25%" type="text" class="form-control">
-      </div>
-    </div>
-  </div>
-</div>
-                 
-
               <div class="card-footer ml-auto mr-auto">
                 <button type="submit" class="btn btn-primary">{{ __('Update Designation') }}</button>
               </div>

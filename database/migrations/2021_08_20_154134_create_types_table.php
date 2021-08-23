@@ -18,7 +18,6 @@ class CreateTypesTable extends Migration
             $table->string('name');
             $table->longText('description');
             $table->integer('duration');
-            $table->decimal('interest', 10, 4);
             $table->timestamps();
         });
     }
