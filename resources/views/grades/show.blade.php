@@ -23,14 +23,14 @@
             <div class="card-body table-responsive">
               <table class="table table-hover">
                 <thead class="text-warning">
-                  <th>ID</th>
+                  <th>No</th>
                   <th>Grade</th>
                   <th>Salary</th>
                 </thead>
                 <tbody>
 
                   <tr>
-                    <td>{{ $grade->id }}</td>
+                    <td> genere code count </td>
                     <td>{{ $grade->name }}</td>
                     <td>{{ $grade->salary }}</td>
                     <td>

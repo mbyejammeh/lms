@@ -14,11 +14,30 @@ class LoanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
+    public function calc_interest() {
+//        $types = Type::all();
+//
+//        $amount = ;
+//        $interest = ;
+
+    }
+
+
     public function index()
     {
         $loans = Loan::all();
+        $types = Type::all();
 
-        return view('loans.index', compact('loans'));
+        $total_interest = ($loans[0]['amount'] * $loans[0]['interest'] * $types[0]['duration']) / 100;
+        $total_payable = $total_interest + $loans[0]['amount'];
+        $monthly_payable = $total_payable / $types[0]['duration'];
+
+//        return $loans[0]['interest'];
+        return view('loans.index', compact('loans', 'monthly_payable', 'total_payable'));
+
+
     }
 
     /**
@@ -41,14 +60,14 @@ class LoanController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([            
+        $request->validate([
             'amount' => 'required',
             'interest' => 'required',
             'borrower_id' => 'required',
             'type_id' => 'required',
             'purpose' => 'required',
-            'payable_amount' => 'required',
-            'monthly_payable' => 'required'
+/*            'payable_amount' => 'required',
+            'monthly_payable' => 'required'*/
         ]);
 
         Loan::create($request->all());
@@ -93,11 +112,11 @@ class LoanController extends Controller
             'borrower_id' => 'required',
             'type_id' => 'required',
             'purpose' => 'required',
-            'payable_amount' => 'required',
-            'monthly_payable' => 'required'
+           /* 'payable_amount' => 'required',
+            'monthly_payable' => 'required'*/
         ]);
 
-        $borrower->update($request->all());
+//        $borrower->update($request->all());
 
         return redirect()->route('loans.index')->with('success','Loan Updated Successfully');
     }
@@ -116,7 +135,7 @@ class LoanController extends Controller
                        ->with('success','Loan Deleted Successfully');
     }
 
-    public function calculator()
+    /*public function calculator()
     {
         $loans = Loan::all();
         $types = Type::all();
@@ -126,9 +145,9 @@ class LoanController extends Controller
 
         $monthly_payable = $payable_amount / $types->$duration;
 
-        
+
 
        return redirect()->route('loans.index')
                        ->with('success','Loan Deleted Successfully');
-    }
+    }*/
 }

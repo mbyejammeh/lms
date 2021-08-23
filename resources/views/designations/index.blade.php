@@ -25,7 +25,7 @@
             <div class="card-body table-responsive">
               <table class="table table-hover">
                 <thead class="text-warning">
-                  <th>ID</th>
+                  <th>No</th>
                   <th>Name</th>
                   <th>Grade ID</th>
                   <th>Action</th>
@@ -33,7 +33,7 @@
                 <tbody>
                   @foreach ($designations as $designation)
                   <tr>
-                    <td>{{ $designation->id }}</td>
+                    <td> Numbering </td>
                     <td>{{ $designation->name }}</td>
                     <td>{{ $designation->grade->name }}</td>
                     <td  class="form-inline">

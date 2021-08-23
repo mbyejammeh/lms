@@ -25,27 +25,27 @@
             <div class="card-body table-responsive">
               <table class="table table-hover">
                 <thead class="text-warning">
-                  <th>ID</th>
+                  <th>No</th>
                   <th>Amount</th>
                   <th>Interest</th>
                   <th>Borrower ID</th>
                   <th>Type ID</th>
                   <th>Purpose</th>
-                  <th>Total Amount Payable</th>
+                  <th>  Total Amount Payable</th>
                   <th>Total Monthly Payable</th>
                   <th>Action</th>
                 </thead>
                 <tbody>
                   @foreach ($loans as $loan)
                   <tr>
-                    <td>{{ $loan->id }}</td>
+                    <td>Numbering</td>
                     <td>{{ $loan->amount }}</td>
                     <td>{{ $loan->interest }}</td>
                     <td>{{ $loan->borrower_id }}</td>
                     <td>{{ $loan->type_id }}</td>
                     <td>{{ $loan->purpose }}</td>
-                    <td>{{ $loan->payable_amount }}</td>
-                    <td>{{ $loan->monthly_payable }}</td>
+                    <td> {{ $total_payable }}</td>
+                    <td> {{ $monthly_payable }}</td>
                     <td  class="form-inline">
                       <button type="button" rel="tooltip" title="Edit" class="btn btn-primary btn-link btn-sm">
                         <a class="nav-link" href="{{ route('loans.edit',$loan->id) }}"> <i class="material-icons">edit</i></a>
