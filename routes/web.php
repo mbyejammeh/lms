@@ -4,6 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GradeController;
 use App\Http\Controllers\DesignationController;
 use App\Http\Controllers\TypeController;
+use App\Http\Controllers\BorrowerController;
+use App\Http\Controllers\GuarantorController;
+use App\Http\Controllers\LoanController;
+
 
 
 /*
@@ -17,9 +21,13 @@ use App\Http\Controllers\TypeController;
 |
 */
 
-Route::resource('grades', GradeController::class);
+Route::resource('grades', GradeController::class    );
 Route::resource('designations', DesignationController::class);
 Route::resource('types', TypeController::class);
+Route::resource('borrowers', BorrowerController::class);
+Route::resource('guarantors', GuarantorController::class);
+Route::resource('loans', LoanController::class);
+
 
 
 Route::get('/', function () {
@@ -38,7 +46,7 @@ Route::group(['middleware' => 'auth'], function () {
 		return view('pages.table_list');
 	})->name('table');
 
-	//MNJ Test 
+	//MNJ Test
 	Route::get('form', function () {
 		return view('pages.form');
 	})->name('form');
@@ -46,7 +54,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('table', function () {
 		return view('pages.table_sample');
 	})->name('sample');
-	
+
 });
 
 Route::group(['middleware' => 'auth'], function () {

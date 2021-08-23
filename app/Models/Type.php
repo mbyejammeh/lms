@@ -10,6 +10,6 @@ class Type extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name', 'description', 'duration', 'interest'
+        'name', 'description', 'duration'
       ];
 }

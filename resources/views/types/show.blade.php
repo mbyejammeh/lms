@@ -27,7 +27,6 @@
                   <th>Name</th>
                   <th>Description</th>
                   <th>Duration</th>
-                  <th>Interest</th>
                 </thead>
                 <tbody>
                  
@@ -36,7 +35,6 @@
                     <td>{{ $type->name }}</td>
                     <td>{{ $type->description }}</td>
                     <td>{{ $type->duration }}</td>
-                    <td>{{ $type->interest }}</td>
                     <td>
                   </tr>
                  

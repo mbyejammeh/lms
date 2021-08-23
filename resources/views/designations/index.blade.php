@@ -43,10 +43,7 @@
                       <button type="button" rel="tooltip" title="View" class="btn btn-info btn-link btn-sm">
                         <a class="nav-link" href="{{ route('designations.show',$designation->id) }}"> <i class="material-icons">visibility</i></a>
                       </button>
-
-
                       <form action="{{ route('designations.destroy',$designation->id) }}" method="POST">
-
                       @csrf
                       @method('DELETE')
                           <button type="submit" rel="tooltip" title="Delete" class="btn btn-info btn-link btn-sm"><i class="material-icons">close</i></button>

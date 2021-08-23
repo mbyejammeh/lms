@@ -41,7 +41,6 @@ class TypeController extends Controller
             'name' => 'required',
             'description' => 'required',
             'duration' => 'required',
-            'interest' => 'required',
         ]);
 
         Type::create($request->all());
@@ -84,7 +83,6 @@ class TypeController extends Controller
             'name' => 'required',
             'description' => 'required',
             'duration' => 'required',
-            'interest' => 'required',
         ]);
 
         $type->update($request->all());
