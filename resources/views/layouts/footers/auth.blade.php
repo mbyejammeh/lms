@@ -4,7 +4,7 @@
       &copy;
       <script>
         document.write(new Date().getFullYear())
-      </script>, Developed by <a href="https://www.moici.gov.gm" target="_blank">MOICI</a> Application Developer Team.
+      </script>, Developed by <a href="https://www.moici.gov.gm" target="_blank">Government</a> Application Developer Team.
     </div>
   </div>
 </footer>
