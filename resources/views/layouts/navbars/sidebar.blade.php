@@ -16,13 +16,7 @@
           <i class="material-icons">dashboard</i>
             <p>{{ __('Dashboard') }}</p>
         </a>
-      </li>
-      <li class="nav-item{{ $activePage == 'profile' ? ' active' : '' }}">
-        <a class="nav-link" href="{{ route('profile.edit') }}">
-            <span class="sidebar-mini"> <i class="material-icons">person</i> </span>
-            <span class="sidebar-normal">{{ __('User profile') }} </span>
-        </a>
-      </li>
+      </li>    
       <li class="nav-item{{ $activePage == 'borrower' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('borrowers.index') }}">
           <i class="material-icons">paid</i>
@@ -69,6 +63,12 @@
         <a class="nav-link" href="{{ route('table') }}">
           <i class="material-icons">content_paste</i>
             <p>{{ __('Table List') }}</p>
+        </a>
+      </li>
+      <li class="nav-item{{ $activePage == 'profile' ? ' active' : '' }}">
+        <a class="nav-link" href="{{ route('profile.edit') }}">
+            <span class="sidebar-mini"> <i class="material-icons">person</i> </span>
+            <span class="sidebar-normal">{{ __('User profile') }} </span>
         </a>
       </li>
     </ul>
