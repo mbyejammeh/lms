@@ -63,7 +63,7 @@
              <label for="date_of_birth" class="col-sm-2 col-form-label">Date of Birth</label> 
                 <div class="col-sm-7" >
                   <div class="form-group">
-                  <input id="date_of_birth" name="date_of_birth" value="{{ $guarantor->date_of_birth}}" placeholder="2021-01-01" type="text" class="form-control">
+                  <input id="date_of_birth" name="date_of_birth" value="{{ $guarantor->date_of_birth}}" placeholder="2021-01-01" type="date" class="form-control">
                 </div>
               </div>
             </div>
@@ -103,7 +103,7 @@
              <label for="email" class="col-sm-2 col-form-label">Email</label> 
                 <div class="col-sm-7" >
                   <div class="form-group">
-                  <input id="email" name="email" value="{{ $guarantor->email}}" placeholder="loans@pmo.gov.gm" type="text" class="form-control">
+                  <input id="email" name="email" value="{{ $guarantor->email}}" placeholder="loans@pmo.gov.gm" type="email" class="form-control">
                 </div>
               </div>
             </div>
@@ -114,7 +114,7 @@
              <label for="employment_date" class="col-sm-2 col-form-label">Employment Date</label> 
                 <div class="col-sm-7" >
                   <div class="form-group">
-                  <input id="employment_date" name="employment_date" value="{{ $guarantor->employment_date}}" placeholder="2021-01-01" type="text" class="form-control">
+                  <input id="employment_date" name="employment_date" value="{{ $guarantor->employment_date}}" placeholder="2021-01-01" type="date" class="form-control">
                 </div>
               </div>
             </div>

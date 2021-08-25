@@ -16,14 +16,6 @@ class LoanController extends Controller
      */
 
 
-    public function calc_interest() {
-//        $types = Type::all();
-//
-//        $amount = ;
-//        $interest = ;
-
-    }
-
 
     public function index()
     {

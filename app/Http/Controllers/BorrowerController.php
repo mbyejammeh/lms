@@ -52,7 +52,7 @@ class BorrowerController extends Controller
             'phone1' => 'required',
             'phone2' => 'nullable',
             'address' => 'required',
-            'email' => 'nullable',
+            'email' => 'nullable|email',
             'employment_date' => 'required',
             'payroll_number' => 'required',
             'designation_id' => 'required',
