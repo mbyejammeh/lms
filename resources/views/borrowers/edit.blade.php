@@ -24,7 +24,6 @@
                 <h4 class="card-title">{{ __('Editing Borrower') }}</h4>
                 <p class="card-category">{{ __('Civil Service Revolving Loan Scheme') }}</p>
               </div>
-
               <div class="card-body ">
                 <div class="row">
                  <label for="first_name" class="col-sm-2 col-form-label">First Name</label> 
@@ -164,12 +163,7 @@
             </div>
           </div>
 
-          
-
-
-<!-- Retreive from database in a dropdown would be the best-->
-
-           
+<!-- Retreive from database in a dropdown would be the best--> 
           
 
               <div class="card-footer ml-auto mr-auto">

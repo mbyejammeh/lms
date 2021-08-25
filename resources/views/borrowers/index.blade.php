@@ -4,7 +4,6 @@
 
 @section('content')
   <div class="content">
-
     <div class="container-fluid"> 
       @if ($message = Session::get('success'))
         <div class="alert alert-success">
@@ -59,10 +58,7 @@
                       <button type="button" rel="tooltip" title="View" class="btn btn-info btn-link btn-sm">
                         <a class="nav-link" href="{{ route('borrowers.show',$borrower->id) }}"> <i class="material-icons">visibility</i></a>
                       </button>
-
                       <form action="{{ route('borrowers.destroy',$borrower->id) }}" method="POST">
-
-
                       @csrf
                       @method('DELETE')
                           <button type="submit" rel="tooltip" title="Delete" class="btn btn-info btn-link btn-sm"><i class="material-icons">close</i></button>

@@ -6,6 +6,7 @@ use App\Models\Borrower;
 use App\Models\Designation;
 use App\Models\Grade;
 use App\Models\Type;
+
 use Illuminate\Http\Request;
 
 class BorrowerController extends Controller
@@ -29,10 +30,12 @@ class BorrowerController extends Controller
      */
     public function create()
     {
+
         $designations = Designation::all();
         $grades = Grade::all();
         $types = Type::all();
         return view('borrowers.create',compact('designations', 'grades', 'types'));
+
     }
 
     /**
@@ -43,7 +46,6 @@ class BorrowerController extends Controller
      */
     public function store(Request $request)
     {
-
         $request->validate([            
             'first_name' => 'required',
             'middle_name' => 'nullable',
@@ -109,7 +111,8 @@ class BorrowerController extends Controller
             'payroll_number' => 'required',
             'designation_id' => 'required',            
             'grade_id' => 'required',            
-            'type_id' => 'required', 
+            'type_id' => 'required',            
+            'status' => 'required',
         ]);
 
         $borrower->update($request->all());

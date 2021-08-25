@@ -10,6 +10,7 @@ use App\Http\Controllers\LoanController;
 
 
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,7 +28,6 @@ Route::resource('types', TypeController::class);
 Route::resource('borrowers', BorrowerController::class);
 Route::resource('guarantors', GuarantorController::class);
 Route::resource('loans', LoanController::class);
-
 
 
 Route::get('/', function () {
