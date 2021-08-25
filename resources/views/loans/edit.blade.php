@@ -19,12 +19,6 @@
             <form action="{{ route('loans.update',$loan->id) }}" method="POST" class="form-horizontal">
               @csrf
               @method('PUT')
-            <div class="card ">
-              <div class="card-header card-header-primary">
-                <h4 class="card-title">{{ __('Editing Loan') }}</h4>
-                <p class="card-category">{{ __('Loans for The Civil Service Revolving Loan Scheme') }}</p>
-              </div>
-
               <div class="card ">
                 <div class="card-header card-header-primary">
                   <h4 class="card-title">{{ __('Adding Loans') }}</h4>
