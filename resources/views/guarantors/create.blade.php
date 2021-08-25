@@ -29,7 +29,7 @@
                  <label for="first_name" class="col-sm-2 col-form-label">First Name</label> 
                   <div class="col-sm-7" >
                    <div class="form-group">
-                     <input id="first_name" name="first_name" placeholder="First Name" type="text" class="form-control">
+                     <input id="first_name" name="first_name" placeholder="First Name" type="text" pattern="[a-zA-Z]+" class="form-control" required>
                     </div>
                   </div>
                 </div>
@@ -40,7 +40,7 @@
                  <label for="middle_name" class="col-sm-2 col-form-label">Middle Name</label> 
                 <div class="col-sm-7" >
                   <div class="form-group">
-                  <input id="middle_name" name="middle_name" placeholder="Middle Name" type="text" class="form-control">
+                  <input id="middle_name" name="middle_name" placeholder="Middle Name" type="text" pattern="[a-zA-Z]+" class="form-control">
                 </div>
               </div>
             </div>
@@ -51,7 +51,7 @@
              <label for="last_name" class="col-sm-2 col-form-label">Last Name</label> 
                 <div class="col-sm-7" >
                   <div class="form-group">
-                  <input id="last_name" name="last_name" placeholder="Last Name" type="text" class="form-control">
+                  <input id="last_name" name="last_name" placeholder="Last Name" type="text" pattern="[a-zA-Z]+" class="form-control" required>
                 </div>
               </div>
             </div>
@@ -62,7 +62,7 @@
              <label for="date_of_birth" class="col-sm-2 col-form-label">Date of Birth</label> 
                 <div class="col-sm-7" >
                   <div class="form-group">
-                  <input id="date_of_birth" name="date_of_birth" placeholder="2021-01-01" type="date" class="form-control">
+                  <input id="date_of_birth" name="date_of_birth" placeholder="2021-01-01" type="date" class="form-control" required>
                 </div>
               </div>
             </div>
@@ -73,14 +73,14 @@
              <label for="phone1" class="col-sm-2 col-form-label">Phone 1</label> 
                 <div class="col-sm-2" >
                   <div class="form-group">
-                  <input id="phone1" name="phone1" placeholder="777 7777" type="text" class="form-control">
+                  <input id="phone1" name="phone1" placeholder="777 7777" type="tel" minlength="7" maxlength="7" class="form-control" required>
                 </div>
               </div>
 
               <label for="phone2" class="col-sm-1 col-form-label">Phone 2</label> 
                 <div class="col-sm-2" >
                   <div class="form-group">
-                  <input id="phone2" name="phone2" placeholder="777 7777" type="text" class="form-control">
+                  <input id="phone2" name="phone2" placeholder="777 7777" type="tel" minlength="7" maxlength="7" class="form-control">
                 </div>
               </div>
             </div>
@@ -91,7 +91,7 @@
              <label for="address" class="col-sm-2 col-form-label">Address</label> 
                 <div class="col-sm-7" >
                   <div class="form-group">
-                  <textarea id="address" name="address" cols="40" rows="5" class="form-control"></textarea>
+                    <input id="address" name="address" placeholder="Address" type="text" class="form-control" required>
                 </div>
               </div>
             </div>
@@ -113,7 +113,7 @@
              <label for="employment_date" class="col-sm-2 col-form-label">Employment Date</label> 
                 <div class="col-sm-7" >
                   <div class="form-group">
-                  <input id="employment_date" name="employment_date" placeholder="2021-01-01" type="date" class="form-control">
+                  <input id="employment_date" name="employment_date" placeholder="2021-01-01" type="date" class="form-control" required>
                 </div>
               </div>
             </div>
@@ -124,7 +124,7 @@
              <label for="payroll_number" class="col-sm-2 col-form-label">Payroll</label> 
                 <div class="col-sm-7" >
                   <div class="form-group">
-                  <input id="payroll_number" name="payroll_number" placeholder="123456" type="text" class="form-control">
+                  <input id="payroll_number" name="payroll_number" placeholder="123456" type="number" class="form-control" required>
                 </div>
               </div>
             </div>
