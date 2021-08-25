@@ -19,15 +19,27 @@ class LoanController extends Controller
 
     public function index()
     {
+        
         $loans = Loan::all();
         $types = Type::all();
 
-        $total_interest = ($loans[0]['amount'] * $loans[0]['interest'] * $types[0]['duration']) / 100;
-        $total_payable = $total_interest + $loans[0]['amount'];
-        $monthly_payable = $total_payable / $types[0]['duration'];
+        $a=$b=$c = [];
+        
+        if(empty($loans)){
+            return view('loans.index', compact('a', 'b', 'c'));
+        }
+        foreach ($loans as $loan) {
+            $total_interest = count($loans) > 1 ? ($loan['amount'] * $loan['interest'] * $types[0]['duration']) / 100 : 0;
+            $total_payable = count($loans) > 1 ? $total_interest + $loan['amount'] : 0;
+            $monthly_payable = $total_payable / $types[0]['duration'];
 
-//        return $loans[0]['interest'];
+            $loan['total_payable'] = $total_payable;
+            $loan['monthly_payable'] = $monthly_payable;
+
+        }
+//        return loan['interest'];
         return view('loans.index', compact('loans', 'monthly_payable', 'total_payable'));
+        
 
 
     }

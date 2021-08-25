@@ -16,7 +16,7 @@ class CreateLoansTable extends Migration
         Schema::create('loans', function (Blueprint $table) {
             $table->id();
             $table->decimal('amount', 10, 2);
-            $table->decimal('interest', 10, 4);
+            $table->decimal('interest', 10, 2);
             $table->unsignedBigInteger('borrower_id');
             $table->foreign('borrower_id')->references('id')->on('borrowers')->onDelete('cascade');
             $table->unsignedBigInteger('type_id');
