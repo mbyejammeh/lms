@@ -17,32 +17,30 @@
         <div class="col-lg-12 col-md-12">
           <div class="card">
             <div class="card-header card-header-warning">
-              <h4 class="card-title">Loan</h4>
-              <p class="card-category">Loans for The Civil Service Revolving Loan Scheme</p>
+              <h4 class="card-title">Payment</h4>
+              <p class="card-category">Payment for The Civil Service Revolving Loan Scheme</p>
             </div>
             <div class="card-body table-responsive">
               <table class="table table-hover">
                 <thead class="text-warning">
                   <th>ID</th>
-                  <th>Amount</th>
-                  <th>Interest</th>
+                  <th>Loan ID</th>
                   <th>Borrower ID</th>
-                  <th>Type ID</th>
-                  <th>Purpose</th>
+                  <th>Amount</th>                  
                   <th>Total Amount Payable</th>
-                  <th>Total Monthly Payable</th>
+                  <th>Monthly Payment</th>
+                  <th>Balance</th>
                 </thead>
                 <tbody>
 
                   <tr>
-                    <td>{{ $loan->id }}</td>
-                    <td>{{ $loan->amount }}</td>
-                    <td>{{ $loan->interest }}</td>
-                    <td>{{ $loan->borrower_id }}</td>
-                    <td>{{ $loan->type_id }}</td>
-                    <td>{{ $loan->purpose }}</td>
-                    <td>{{ $loan->payable_amount }}</td>
-                    <td>{{ $loan->monthly_payable }}</td>
+                    <td>{{ $payment->id }}</td>
+                    <td>{{ $payment->loan_id }}</td>
+                    <td>{{ $payment->borrower_id }}</td>
+                    <td>{{ $payment->amount }}</td>
+                    <td>{{ $payment->payable_amount }}</td>
+                    <td>{{ $payment->monthly_payment }}</td>
+                    <td>{{ $payment->amount }}</td>
                     <td>
                   </tr>
 

@@ -30,8 +30,8 @@
             <p>{{ __('Guarantors') }}</p>
         </a>
       </li>
-      <li class="nav-item{{ $activePage == 'table' ? ' active' : '' }}">
-        <a class="nav-link" href="{{ route('table') }}">
+      <li class="nav-item{{ $activePage == 'payment' ? ' active' : '' }}">
+        <a class="nav-link" href="{{ route('payments.index') }}">
           <i class="material-icons">money</i>
             <p>{{ __('Payments') }}</p>
         </a>
@@ -45,7 +45,7 @@
       <li class="nav-item{{ $activePage == 'loan' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('loans.index') }}">
           <i class="material-icons">style</i>
-            <p>{{ __('Loans') }}</p>
+            <p>{{ __('Loan') }}</p>
         </a>
       </li>
       <li class="nav-item{{ $activePage == 'retrieve' ? ' active' : '' }}">

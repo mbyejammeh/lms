@@ -28,7 +28,7 @@ Route::resource('types', TypeController::class);
 Route::resource('borrowers', BorrowerController::class);
 Route::resource('guarantors', GuarantorController::class);
 Route::resource('loans', LoanController::class);
-Route::resource('loans', PaymentController::class);
+Route::resource('payments', PaymentController::class);
 
 
 Route::get('/', function () {

@@ -8,4 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Payment extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'loan_id', 'borrower_id', 'amount' 
+      ];
+
+
+    public function borrower(){
+        return $this->belongsTo(Borrower::class);
+    }
+
+    public function loan(){
+        return $this->belongsTo(Loan::class);
+    }
 }

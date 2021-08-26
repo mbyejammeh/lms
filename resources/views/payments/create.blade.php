@@ -33,7 +33,7 @@
                       <!-- Retreive from database -->
 
                         @foreach($loans as $loan)
-                        <option value="{{$loan->id}}">{{$loan->name}}</option>
+                        <option value="{{$loan->id}}">{{$loan->id}}</option>
                         @endforeach
                     </select>
                 </div>

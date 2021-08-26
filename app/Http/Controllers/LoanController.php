@@ -70,8 +70,6 @@ class LoanController extends Controller
             'borrower_id' => 'required',
             'type_id' => 'required',
             'purpose' => 'required',
-/*            'payable_amount' => 'required',
-            'monthly_payable' => 'required'*/
         ]);
 
         Loan::create($request->all());

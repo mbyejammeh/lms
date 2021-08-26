@@ -45,8 +45,8 @@
                     <td>{{ $loan->borrower_id }}</td>
                     <td>{{ $loan->type_id }}</td>
                     <td>{{ $loan->purpose }}</td>
-                    <td>{{ $loan->total_payable}}</td>
-                    <td>{{ $loan->monthly_payable}}</td>
+                    <td> {{ $loan->total_payable}}</td>
+                    <td> {{ $loan->monthly_payable}}</td>
                     <td  class="form-inline">
                       <button type="button" rel="tooltip" title="Edit" class="btn btn-primary btn-link btn-sm">
                         <a class="nav-link" href="{{ route('loans.edit',$loan->id) }}"> <i class="material-icons">edit</i></a>
