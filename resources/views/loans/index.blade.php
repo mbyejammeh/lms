@@ -29,10 +29,12 @@
                   <th>Amount</th>
                   <th>Interest</th>
                   <th>Borrower ID</th>
+                  <th>Guarantor ID</th>
                   <th>Type ID</th>
                   <th>Purpose</th>
-                  <th> Total Amount Payable</th>
+                  <th>Total Amount Payable</th>
                   <th>Total Monthly Payable</th>
+                  <th>Status</th>
                   <th>Action</th>
                 </thead>
                 <tbody>
@@ -43,10 +45,12 @@
                     <td>{{ $loan->amount }}</td>
                     <td>{{ $loan->interest }}</td>
                     <td>{{ $loan->borrower_id }}</td>
+                    <td>{{ $loan->guarantor_id }}</td>
                     <td>{{ $loan->type_id }}</td>
                     <td>{{ $loan->purpose }}</td>
-                    <td> {{ $loan->total_payable}}</td>
-                    <td> {{ $loan->monthly_payable}}</td>
+                    <td>{{ $loan->total_payable}}</td>
+                    <td>{{ $loan->monthly_payable}}</td>
+                    <td>{{ $loan->status }}</td>
                     <td  class="form-inline">
                       <button type="button" rel="tooltip" title="Edit" class="btn btn-primary btn-link btn-sm">
                         <a class="nav-link" href="{{ route('loans.edit',$loan->id) }}"> <i class="material-icons">edit</i></a>

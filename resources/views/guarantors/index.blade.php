@@ -29,7 +29,6 @@
                   <th>Payroll</th>
                   <th>Guarantor's Info</th>
                   <th>Employment Info</th>
-                  <th>Borrower's Info</th>
                   <th>Loan Status</th>
                   <th>Action</th>
                 </thead>
@@ -49,8 +48,7 @@
                       {{ $guarantor->grade_id }}<br>
                       {{ $guarantor->employment_date }}<br>
                       </td>
-                    <td>{{ $guarantor->borrower_id }}</td>
-                    <td>{{ $guarantor->status }}</td>
+                      <td class="text-danger font-weight-bold"> Has Load </td>
                     <td  class="form-inline">
                       <button type="button" rel="tooltip" title="Edit" class="btn btn-primary btn-link btn-sm">
                         <a class="nav-link" href="{{ route('guarantors.edit',$guarantor->id) }}"> <i class="material-icons">edit</i></a>

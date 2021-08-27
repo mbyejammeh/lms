@@ -162,23 +162,6 @@
                 </div>
               </div>
             </div>
-          </div>          
-
-          <div class="card-body ">
-            <div class="row">
-             <label for="borrower_id" class="col-sm-2 col-form-label">Borrower ID</label> 
-                <div class="col-sm-7" >
-                  <div class="form-group">
-                    <select id="borrower_id" name="borrower_id" class="custom-select">
-                      <!-- Retreive from database -->
-
-                        @foreach($borrowers as $borrower)
-                        <option value="{{$borrower->id}}">{{$borrower->payroll_number}}</option>
-                        @endforeach
-                    </select>
-                </div>
-              </div>
-            </div>
           </div>         
 
               <div class="card-footer ml-auto mr-auto">

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Loan;
 use App\Models\Type;
 use App\Models\Borrower;
+use App\Models\Guarantor;
 use Illuminate\Http\Request;
 
 class LoanController extends Controller
@@ -52,8 +53,9 @@ class LoanController extends Controller
     public function create()
     {
         $borrowers = Borrower::all();
+        $guarantors = Guarantor::all();
         $types = Type::all();
-        return view('loans.create',compact('borrowers', 'types'));
+        return view('loans.create',compact('borrowers', 'guarantors', 'types'));
     }
 
     /**
@@ -68,8 +70,10 @@ class LoanController extends Controller
             'amount' => 'required',
             'interest' => 'required',
             'borrower_id' => 'required',
+            'guarantor_id' => 'required',
             'type_id' => 'required',
             'purpose' => 'required',
+            //'status' => 'required',
         ]);
 
         Loan::create($request->all());
@@ -96,7 +100,10 @@ class LoanController extends Controller
      */
     public function edit(Loan $loan)
     {
-        return view('loans.edit',compact('loan'));
+        $borrowers = Borrower::all();
+        $guarantors = Guarantor::all();
+        $types = Type::all();
+        return view('loans.edit',compact('loan', 'borrowers', 'guarantors', 'types'));
     }
 
     /**
@@ -112,9 +119,10 @@ class LoanController extends Controller
             'amount' => 'required',
             'interest' => 'required',
             'borrower_id' => 'required',
+            'guarantor_id' => 'required',
             'type_id' => 'required',
             'purpose' => 'required',
-           /* 'payable_amount' => 'required',
+            /*'status' => 'required',
             'monthly_payable' => 'required'*/
         ]);
 

@@ -24,14 +24,11 @@ class CreateBorrowersTable extends Migration
             $table->string('address');
             $table->string('email')->nullable();
             $table->date('employment_date');
-            $table->integer('payroll_number');
+            $table->integer('payroll_number')->unique();
             $table->unsignedBigInteger('designation_id');
             $table->foreign('designation_id')->references('id')->on('designations')->onDelete('cascade');
             $table->unsignedBigInteger('grade_id');
             $table->foreign('grade_id')->references('id')->on('grades')->onDelete('cascade');
-            $table->unsignedBigInteger('type_id');
-            $table->foreign('type_id')->references('id')->on('types')->onDelete('cascade');
-            $table->boolean('status')->default(1);
             $table->timestamps();
         });
     }

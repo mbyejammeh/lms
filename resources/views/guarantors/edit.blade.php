@@ -152,23 +152,7 @@
               </div>
             </div>
           </div>
-
-          <div class="card-body ">
-            <div class="row">
-             <label for="borrower_id" class="col-sm-2 col-form-label">Borrower</label> 
-                <div class="col-sm-7" >
-                  <div class="form-group">
-                  <input id="borrower_id" name="borrower_id" value="{{ $guarantor->borrower_id}}" placeholder="123456" type="text" class="form-control" required>
-                </div>
-              </div>
-            </div>
-          </div>       
-
-
-<!-- Retreive from database in a dropdown would be the best-->
-
-           
-          
+<!-- Retreive from database in a dropdown would be the best--> 
 
               <div class="card-footer ml-auto mr-auto">
                 <button type="submit" class="btn btn-primary">{{ __('Update Guarantor') }}</button>

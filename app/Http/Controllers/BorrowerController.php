@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Borrower;
 use App\Models\Designation;
 use App\Models\Grade;
-use App\Models\Type;
 
 use Illuminate\Http\Request;
 
@@ -33,8 +32,7 @@ class BorrowerController extends Controller
 
         $designations = Designation::all();
         $grades = Grade::all();
-        $types = Type::all();
-        return view('borrowers.create',compact('designations', 'grades', 'types'));
+        return view('borrowers.create',compact('designations', 'grades'));
 
     }
 
@@ -59,7 +57,6 @@ class BorrowerController extends Controller
             'payroll_number' => 'required',
             'designation_id' => 'required',
             'grade_id' => 'required',
-            'type_id' => 'required',
         ]);
 
         Borrower::create($request->all());
@@ -110,9 +107,7 @@ class BorrowerController extends Controller
             'employment_date' => 'required',
             'payroll_number' => 'required',
             'designation_id' => 'required',            
-            'grade_id' => 'required',            
-            'type_id' => 'required',            
-            'status' => 'required',
+            'grade_id' => 'required', 
         ]);
 
         $borrower->update($request->all());

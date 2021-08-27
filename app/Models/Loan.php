@@ -10,11 +10,15 @@ class Loan extends Model
     use HasFactory;
 
     protected $fillable = [
-        'amount', 'interest', 'borrower_id', 'type_id', 'purpose', 'payable_amount', 'monthly_payable' 
+        'amount', 'interest', 'borrower_id', 'guarantor_id', 'type_id', 'purpose', 'status' 
       ];
 
     public function borrower(){
         return $this->belongsTo(Borrower::class);
+    }
+
+    public function guarantor(){
+        return $this->belongsTo(Guarantor::class);
     }
 
     public function type(){

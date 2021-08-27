@@ -151,18 +151,6 @@
               </div>
             </div>
           </div>
-
-          <div class="card-body ">
-            <div class="row">
-             <label for="type_id" class="col-sm-2 col-form-label">Type ID</label> 
-                <div class="col-sm-7" >
-                  <div class="form-group">
-                  <input id="type_id" name="type_id" value="{{ $borrower->type_id}}" placeholder="Car Loan" type="text" class="form-control" required>
-                </div>
-              </div>
-            </div>
-          </div>
-
 <!-- Retreive from database in a dropdown would be the best--> 
           
 
