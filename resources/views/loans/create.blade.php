@@ -65,6 +65,23 @@
 
           <div class="card-body ">
             <div class="row">
+             <label for="guarantor_id" class="col-sm-2 col-form-label">Guarantor ID</label>
+                <div class="col-sm-7" >
+                  <div class="form-group">
+                    <select id="guarantor_id" name="guarantor_id" class="custom-select">
+                      <!-- Retreive from database -->
+
+                        @foreach($guarantors as $guarantor)
+                        <option value="{{$guarantor->id}}">{{$guarantor->payroll_number}}</option>
+                        @endforeach
+                    </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-body ">
+            <div class="row">
              <label for="type_id" class="col-sm-2 col-form-label">Loan Type ID</label>
                 <div class="col-sm-7" >
                   <div class="form-group">

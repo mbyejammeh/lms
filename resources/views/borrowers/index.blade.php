@@ -4,7 +4,6 @@
 
 @section('content')
   <div class="content">
-
     <div class="container-fluid"> 
       @if ($message = Session::get('success'))
         <div class="alert alert-success">
@@ -31,8 +30,7 @@
                   <th>Middle Name</th>
                   <th>Last Name</th>
                   <th>Designation / Salary</th>
-                  <th>Loan Type</th>
-                  <th> Balance </th>
+                  <th>Balance </th>
                   <th>Phone Number</th>
                   <th>Email</th>
                   <th>Loan Status</th>
@@ -47,11 +45,10 @@
                     <td>{{ $borrower->middle_name}}</td>
                     <td>{{ $borrower->last_name }}</td>
                     <td> {{ $borrower->designation->name }}</td>
-                    <td> {{ $borrower->type->name }}</td>
                     <td class="text-danger font-weight-bold"> ( -D56,988.00) </td>
                     <td> {{ $borrower->phone1 }} / {{ $borrower->phone2 }}</td>
                     <td> {{ $borrower->email }}</td>
-                    <td> {{ $borrower->status }}</td>
+                    <td class="text-danger font-weight-bold"> Has Load </td>
                     <td  class="form-inline">
                       <button type="button" rel="tooltip" title="Edit" class="btn btn-primary btn-link btn-sm">
                         <a class="nav-link" href="{{ route('borrowers.edit',$borrower->id) }}"> <i class="material-icons">edit</i></a>
@@ -59,10 +56,7 @@
                       <button type="button" rel="tooltip" title="View" class="btn btn-info btn-link btn-sm">
                         <a class="nav-link" href="{{ route('borrowers.show',$borrower->id) }}"> <i class="material-icons">visibility</i></a>
                       </button>
-
                       <form action="{{ route('borrowers.destroy',$borrower->id) }}" method="POST">
-
-
                       @csrf
                       @method('DELETE')
                           <button type="submit" rel="tooltip" title="Delete" class="btn btn-info btn-link btn-sm"><i class="material-icons">close</i></button>

@@ -24,7 +24,6 @@
                 <h4 class="card-title">{{ __('Editing Grade & Basic Salary') }}</h4>
                 <p class="card-category">{{ __('Civil Servant Grading Scale') }}</p>
               </div>
-
                 <div class="card-body ">
                     <div class="row">
                         <label for="text" class="col-sm-2 col-form-label">Grade</label>
@@ -46,6 +45,7 @@
               </div>
             </div>
           </div>
+
 
               <div class="card-footer ml-auto mr-auto">
                 <button type="submit" class="btn btn-primary">{{ __('Update Salary') }}</button>

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Guarantor;
-use App\Models\Borrower;
 use App\Models\Designation;
 use App\Models\Grade;
 use Illuminate\Http\Request;
@@ -29,10 +28,9 @@ class GuarantorController extends Controller
      */
     public function create()
     {
-        $borrowers = Borrower::all();
         $designations = Designation::all();
         $grades = Grade::all();
-        return view('guarantors.create',compact('borrowers', 'designations', 'grades'));
+        return view('guarantors.create',compact('designations', 'grades'));
     }
 
     /**
@@ -51,12 +49,11 @@ class GuarantorController extends Controller
             'phone1' => 'required',
             'phone2' => 'nullable',
             'address' => 'required',
-            'email' => 'nullable',
+            'email' => 'nullable|email',
             'employment_date' => 'required',
             'payroll_number' => 'required',
             'designation_id' => 'required',            
-            'grade_id' => 'required', 
-            'borrower_id' => 'required',           
+            'grade_id' => 'required'          
         ]);
 
         Guarantor::create($request->all());
@@ -107,8 +104,7 @@ class GuarantorController extends Controller
             'employment_date' => 'required',
             'payroll_number' => 'required',
             'designation_id' => 'required',            
-            'grade_id' => 'required', 
-            'borrower_id' => 'required',  
+            'grade_id' => 'required'
         ]);
 
         $guarantor->update($request->all());

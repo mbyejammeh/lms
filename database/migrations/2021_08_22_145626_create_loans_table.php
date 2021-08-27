@@ -19,11 +19,12 @@ class CreateLoansTable extends Migration
             $table->decimal('interest', 10, 2);
             $table->unsignedBigInteger('borrower_id');
             $table->foreign('borrower_id')->references('id')->on('borrowers')->onDelete('cascade');
+            $table->unsignedBigInteger('guarantor_id');
+            $table->foreign('guarantor_id')->references('id')->on('guarantors')->onDelete('cascade');
             $table->unsignedBigInteger('type_id');
             $table->foreign('type_id')->references('id')->on('types')->onDelete('cascade');
-            $table->longText('purpose');
-//            $table->decimal('payable_amount', 10, 2);
-//            $table->decimal('monthly_payable', 10, 2);
+            $table->longText('purpose');            
+            $table->boolean('status')->default(1);
             $table->timestamps();
         });
     }

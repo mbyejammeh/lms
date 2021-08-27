@@ -7,6 +7,7 @@ use App\Http\Controllers\TypeController;
 use App\Http\Controllers\BorrowerController;
 use App\Http\Controllers\GuarantorController;
 use App\Http\Controllers\LoanController;
+use App\Http\Controllers\PaymentController;
 
 
 
@@ -27,7 +28,7 @@ Route::resource('types', TypeController::class);
 Route::resource('borrowers', BorrowerController::class);
 Route::resource('guarantors', GuarantorController::class);
 Route::resource('loans', LoanController::class);
-
+Route::resource('payments', PaymentController::class);
 
 
 Route::get('/', function () {

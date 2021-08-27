@@ -1,4 +1,4 @@
-@extends('layouts.app', ['activePage' => 'loan', 'titlePage' => __('Retrieve Loans')])
+@extends('layouts.app', ['activePage' => 'payment', 'titlePage' => __('Retrieve Payments')])
 
 
 
@@ -13,54 +13,48 @@
     @endif
 
       <div class="col-md-2">
-        <a class="nav-link" href="{{ route('loans.create') }}"> <Button class="btn btn-primary btn-block">Add Loan</Button></a>
+        <a class="nav-link" href="{{ route('payments.create') }}"> <Button class="btn btn-primary btn-block">Add Payment</Button></a>
       </div>
       <div class="row">
         <div class="col-lg-12 col-md-12">
           <div class="card">
             <div class="card-header card-header-warning">
-              <h4 class="card-title">Loans</h4>
-              <p class="card-category">Loans for The Civil Service Revolving Loan Scheme</p>
+              <h4 class="card-title">Payments</h4>
+              <p class="card-category">Payments for The Civil Service Revolving Loan Scheme</p>
             </div>
             <div class="card-body table-responsive">
               <table class="table table-hover">
                 <thead class="text-warning">
                   <th>No</th>
-                  <th>Amount</th>
-                  <th>Interest</th>
+                  <th>Loan ID</th>
                   <th>Borrower ID</th>
-                  <th>Guarantor ID</th>
-                  <th>Type ID</th>
-                  <th>Purpose</th>
+                  <th>Amount</th>                 
                   <th>Total Amount Payable</th>
-                  <th>Total Monthly Payable</th>
-                  <th>Status</th>
+                  <th>Total Monthly Payment</th>
+                  <th>Balance</th>
                   <th>Action</th>
                 </thead>
                 <tbody>
-                @foreach ($loans as $loan)
+                @foreach ($payments as $payment)
                   <tr>
                  
                     <td>Numbering</td>
-                    <td>{{ $loan->amount }}</td>
-                    <td>{{ $loan->interest }}</td>
-                    <td>{{ $loan->borrower_id }}</td>
-                    <td>{{ $loan->guarantor_id }}</td>
-                    <td>{{ $loan->type_id }}</td>
-                    <td>{{ $loan->purpose }}</td>
-                    <td>{{ $loan->total_payable}}</td>
-                    <td>{{ $loan->monthly_payable}}</td>
-                    <td>{{ $loan->status }}</td>
+                    <td>{{ $payment->loan_id }}</td>
+                    <td>{{ $payment->borrower_id }}</td>
+                    <td>{{ $payment->amount }}</td>
+                    <td>{{ $payment->total_amount_payable }}</td>
+                    <td>{{ $payment->total_monthly_payment}}</td>
+                    <td>{{ $payment->balance}}</td>
                     <td  class="form-inline">
                       <button type="button" rel="tooltip" title="Edit" class="btn btn-primary btn-link btn-sm">
-                        <a class="nav-link" href="{{ route('loans.edit',$loan->id) }}"> <i class="material-icons">edit</i></a>
+                        <a class="nav-link" href="{{ route('payments.edit',$payment->id) }}"> <i class="material-icons">edit</i></a>
                       </button>
                       <button type="button" rel="tooltip" title="View" class="btn btn-info btn-link btn-sm">
-                        <a class="nav-link" href="{{ route('loans.show',$loan->id) }}"> <i class="material-icons">visibility</i></a>
+                        <a class="nav-link" href="{{ route('payments.show',$payment->id) }}"> <i class="material-icons">visibility</i></a>
                       </button>
 
 
-                      <form action="{{ route('loans.destroy',$loan->id) }}" method="POST">
+                      <form action="{{ route('payments.destroy',$payment->id) }}" method="POST">
 
                       @csrf
                       @method('DELETE')

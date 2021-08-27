@@ -27,10 +27,12 @@
                   <th>Amount</th>
                   <th>Interest</th>
                   <th>Borrower ID</th>
+                  <th>Guarantor ID</th>
                   <th>Type ID</th>
                   <th>Purpose</th>
                   <th>Total Amount Payable</th>
                   <th>Total Monthly Payable</th>
+                  <th>Status</th>
                 </thead>
                 <tbody>
 
@@ -39,10 +41,12 @@
                     <td>{{ $loan->amount }}</td>
                     <td>{{ $loan->interest }}</td>
                     <td>{{ $loan->borrower_id }}</td>
+                    <td>{{ $loan->guarantor_id }}</td>
                     <td>{{ $loan->type_id }}</td>
                     <td>{{ $loan->purpose }}</td>
                     <td>{{ $loan->payable_amount }}</td>
                     <td>{{ $loan->monthly_payable }}</td>
+                    <td>{{ $loan->status }}</td>
                     <td>
                   </tr>
 

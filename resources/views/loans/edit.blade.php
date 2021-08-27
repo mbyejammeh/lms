@@ -24,12 +24,6 @@
                 <h4 class="card-title">{{ __('Editing Loan') }}</h4>
                 <p class="card-category">{{ __('Loans for The Civil Service Revolving Loan Scheme') }}</p>
               </div>
-
-              <div class="card ">
-                <div class="card-header card-header-primary">
-                  <h4 class="card-title">{{ __('Adding Loans') }}</h4>
-                  <p class="card-category">{{ __('Loans for The Civil Service Revolving Loan Scheme') }}</p>
-                </div>
   
             <div class="card-body ">
               <div class="row">
@@ -63,6 +57,23 @@
   
                           @foreach($borrowers as $borrower)
                           <option value="{{$borrower->id}}">{{$borrower->payroll_number}}</option>
+                          @endforeach
+                      </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-body ">
+              <div class="row">
+               <label for="guarantor_id" class="col-sm-2 col-form-label">Guarantor ID</label>
+                  <div class="col-sm-7" >
+                    <div class="form-group">
+                      <select id="guarantor_id" name="guarantor_id" class="custom-select">
+                        <!-- Retreive from database -->
+  
+                          @foreach($guarantors as $guarantor)
+                          <option value="{{$guarantor->id}}">{{$guarantor->payroll_number}}</option>
                           @endforeach
                       </select>
                   </div>

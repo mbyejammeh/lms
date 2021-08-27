@@ -16,4 +16,5 @@ class Designation extends Model
     public function grade(){
         return $this->belongsTo(Grade::class);
     }
+
 }
