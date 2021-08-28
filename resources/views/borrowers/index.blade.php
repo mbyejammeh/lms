@@ -49,19 +49,18 @@
                     <td> {{ $borrower->phone1 }} / {{ $borrower->phone2 }}</td>
                     <td> {{ $borrower->email }}</td>
                     <td class="text-danger font-weight-bold"> Has Load </td>
-                    <td  class="form-inline">
-                      <button type="button" rel="tooltip" title="Edit" class="btn btn-primary btn-link btn-sm">
-                        <a class="nav-link" href="{{ route('borrowers.edit',$borrower->id) }}"> <i class="material-icons">edit</i></a>
+                    <td  class="td-actions text-right">
+                      <button type="button" rel="tooltip" title="Edit" class="btn btn-success">
+                        <a href="{{ route('borrowers.edit',$borrower->id) }}"> <i class="material-icons">edit</i></a>
                       </button>
-                      <button type="button" rel="tooltip" title="View" class="btn btn-info btn-link btn-sm">
-                        <a class="nav-link" href="{{ route('borrowers.show',$borrower->id) }}"> <i class="material-icons">visibility</i></a>
+                      <button type="button" rel="tooltip" title="View" class="btn btn-info">
+                        <a href="{{ route('borrowers.show',$borrower->id) }}"> <i class="material-icons">visibility</i></a>
                       </button>
-                      <form action="{{ route('borrowers.destroy',$borrower->id) }}" method="POST">
+                      <form action="{{ route('borrowers.destroy',$borrower->id) }}" method="POST" class="d-inline">
                       @csrf
                       @method('DELETE')
-                          <button type="submit" rel="tooltip" title="Delete" class="btn btn-info btn-link btn-sm"><i class="material-icons">close</i></button>
+                          <button type="submit" rel="tooltip" title="Delete" class="btn btn-danger"><i class="material-icons">close</i></button>
                       </form>
-
                     </td>
                   </tr>
                   @endforeach

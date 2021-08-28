@@ -36,19 +36,18 @@
                     <td> Numbering </td>
                     <td>{{ $designation->name }}</td>
                     <td>{{ $designation->grade->name }}</td>
-                    <td  class="form-inline">
-                      <button type="button" rel="tooltip" title="Edit" class="btn btn-primary btn-link btn-sm">
-                        <a class="nav-link" href="{{ route('designations.edit',$designation->id) }}"> <i class="material-icons">edit</i></a>
+                    <td  class="td-actions">
+                      <button type="button" rel="tooltip" title="Edit" class="btn btn-success">
+                        <a href="{{ route('designations.edit',$designation->id) }}"> <i class="material-icons">edit</i></a>
                       </button>
-                      <button type="button" rel="tooltip" title="View" class="btn btn-info btn-link btn-sm">
-                        <a class="nav-link" href="{{ route('designations.show',$designation->id) }}"> <i class="material-icons">visibility</i></a>
+                      <button type="button" rel="tooltip" title="View" class="btn btn-info">
+                        <a href="{{ route('designations.show',$designation->id) }}"> <i class="material-icons">visibility</i></a>
                       </button>
-                      <form action="{{ route('designations.destroy',$designation->id) }}" method="POST">
+                      <form action="{{ route('designations.destroy',$designation->id) }}" method="POST" class="d-inline">
                       @csrf
                       @method('DELETE')
-                          <button type="submit" rel="tooltip" title="Delete" class="btn btn-info btn-link btn-sm"><i class="material-icons">close</i></button>
+                          <button type="submit" rel="tooltip" title="Delete" class="btn btn-danger"><i class="material-icons">close</i></button>
                       </form>
-
                     </td>
                   </tr>
                   @endforeach
