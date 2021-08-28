@@ -8,3 +8,9 @@
         </div>
     </div>
 </footer>
+
+<script>
+    $(document).ready(function() {
+      $('#data').DataTable();
+  } );
+  </script>
