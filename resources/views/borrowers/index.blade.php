@@ -49,7 +49,7 @@
                     <td> {{ $borrower->phone1 }} / {{ $borrower->phone2 }}</td>
                     <td> {{ $borrower->email }}</td>
                     <td class="text-danger font-weight-bold"> Has Load </td>
-                    <td  class="td-actions text-right">
+                    <td  class="td-actions">
                       <button type="button" rel="tooltip" title="Edit" class="btn btn-success">
                         <a href="{{ route('borrowers.edit',$borrower->id) }}"> <i class="material-icons">edit</i></a>
                       </button>
