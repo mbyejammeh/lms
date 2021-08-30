@@ -27,7 +27,7 @@
                 <thead class="text-warning">
                   <th>No</th>
                   <th>Name</th>
-                  <th>Grade ID</th>
+                  <th>Grade</th>
                   <th>Action</th>
                 </thead>
                 <tbody>

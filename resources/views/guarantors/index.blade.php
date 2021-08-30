@@ -44,8 +44,8 @@
                       {{ $guarantor->address }}<br>
                       {{ $guarantor->email }}<br>                    
                     </td>
-                    <td>{{ $guarantor->designation_id }}<br>
-                      {{ $guarantor->grade_id }}<br>
+                    <td>{{$guarantor->designation->name }}<br>
+                      {{ $guarantor->grade->name }}<br>
                       {{ $guarantor->employment_date }}<br>
                       </td>
                       <td class="text-danger font-weight-bold"> Has Load </td>
