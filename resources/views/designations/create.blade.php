@@ -1,7 +1,7 @@
 @extends('layouts.app', ['activePage' => 'designation', 'titlePage' => __('Add Designation')])
 
 @if ($errors->any())
-    <div class="alert alert-danger">
+    <div class="card card-nav-tabs text-center alert alert-danger">
         <ul>
             @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>

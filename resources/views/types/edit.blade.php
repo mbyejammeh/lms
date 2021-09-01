@@ -1,9 +1,7 @@
 @extends('layouts.app', ['activePage' => 'type', 'titlePage' => __('Edit Loan Type')])
 
-
-@section('content')
 @if ($errors->any())
-<div class="alert alert-danger">
+<div class="card card-nav-tabs text-center alert alert-danger">
     <ul>
         @foreach ($errors->all() as $error)
             <li>{{ $error }}</li>
@@ -11,7 +9,7 @@
     </ul>
 </div>
 @endif
-
+@section('content')
   <div class="content">
     <div class="container-fluid">      
       <div class="row">

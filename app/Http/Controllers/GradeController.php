@@ -98,7 +98,6 @@ class GradeController extends Controller
     {
       $grade->delete();
 
-       return redirect()->route('grades.index')
-                       ->with('success','Grade Deleted Successfully');
+       return redirect()->route('grades.index')->with('success','Grade Deleted Successfully');
     }
 }

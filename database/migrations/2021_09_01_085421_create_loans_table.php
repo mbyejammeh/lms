@@ -23,9 +23,9 @@ class CreateLoansTable extends Migration
             $table->foreign('guarantor_id')->references('id')->on('guarantors')->onDelete('cascade');
             $table->unsignedBigInteger('type_id');
             $table->foreign('type_id')->references('id')->on('types')->onDelete('cascade');
-            $table->longText('purpose');  
-            $table->decimal('total_payable', 10, 2);
-            $table->decimal('monthly_payable', 10, 2);          
+            $table->longText('purpose');   
+            $table->decimal('amount_payable', 10, 2);
+            $table->decimal('monthly_payable', 10, 2);         
             $table->boolean('status')->default(1);
             $table->timestamps();
         });

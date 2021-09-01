@@ -51,7 +51,7 @@ class GuarantorController extends Controller
             'address' => 'required',
             'email' => 'nullable|email',
             'employment_date' => 'required',
-            'payroll_number' => 'required',
+            'payroll_number' => 'required|unique:guarantors',
             'designation_id' => 'required',            
             'grade_id' => 'required'          
         ]);
@@ -102,7 +102,7 @@ class GuarantorController extends Controller
             'address' => 'required',
             'email' => 'nullable',
             'employment_date' => 'required',
-            'payroll_number' => 'required',
+            'payroll_number' => 'required|unique:guarantors',
             'designation_id' => 'required',            
             'grade_id' => 'required'
         ]);
@@ -122,7 +122,6 @@ class GuarantorController extends Controller
     {
         $guarantor->delete();
 
-       return redirect()->route('guarantors.index')
-                       ->with('success','Guarantor Deleted Successfully');
+       return redirect()->route('guarantors.index')->with('success','Guarantor Deleted Successfully');
     }
 }

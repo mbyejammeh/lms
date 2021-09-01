@@ -47,7 +47,7 @@
                     <td>{{ $loan->guarantor->payroll_number }}</td>
                     <td>{{ $loan->type->name }}</td>
                     <td>{{ $loan->purpose }}</td>
-                    <td>{{ $loan->total_payable}}</td>
+                    <td>{{ $loan->amount_payable}}</td>
                     <td>{{ $loan->monthly_payable}}</td>
                     <td class="td-actions">
                       @if ($loan->status == 1)
