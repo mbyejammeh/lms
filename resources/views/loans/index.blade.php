@@ -27,7 +27,7 @@
                 <thead class="text-warning">
                   <th>No</th>
                   <th>Amount</th>
-                  <th>Interest</th>
+                  <th>Interest Rate %</th>
                   <th>Borrower's Payroll</th>
                   <th>Guarantor's Payroll</th>
                   <th>Loan Type</th>
@@ -47,9 +47,16 @@
                     <td>{{ $loan->guarantor->payroll_number }}</td>
                     <td>{{ $loan->type->name }}</td>
                     <td>{{ $loan->purpose }}</td>
-                    <td>{{ $loan->total_payable}}</td>
+                    <td>{{ $loan->amount_payable}}</td>
                     <td>{{ $loan->monthly_payable}}</td>
-                    <td>{{ $loan->status }}</td>
+                    <td class="td-actions">
+                      @if ($loan->status == 1)
+                      <button type="button" rel="tooltip" title="Active" class="btn btn-warning">Active</button>
+                     @else
+                     <button type="button" rel="tooltip" title="Complete" class="btn btn-success">Complete</button>
+                     @endif
+                      <!--<button type="button" rel="tooltip" title="{{ $loan->status }}" class="btn btn-success">{{ $loan->status }}</button>-->
+                    </td>
                     <td  class="td-actions">
                       <button type="button" rel="tooltip" title="Edit" class="btn btn-success">
                         <a href="{{ route('loans.edit',$loan->id) }}"> <i class="material-icons">edit</i></a>

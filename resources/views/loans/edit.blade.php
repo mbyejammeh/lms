@@ -1,9 +1,8 @@
 @extends('layouts.app', ['activePage' => 'loan', 'titlePage' => __('Edit Loan')])
 
 
-@section('content')
 @if ($errors->any())
-<div class="alert alert-danger">
+<div class="card card-nav-tabs text-center alert alert-danger">
     <ul>
         @foreach ($errors->all() as $error)
             <li>{{ $error }}</li>
@@ -11,7 +10,7 @@
     </ul>
 </div>
 @endif
-
+@section('content')
   <div class="content">
     <div class="container-fluid">
       <div class="row">
@@ -49,7 +48,7 @@
   
             <div class="card-body ">
               <div class="row">
-               <label for="borrower_id" class="col-sm-2 col-form-label">Borrower ID</label>
+               <label for="borrower_id" class="col-sm-2 col-form-label">Borrower's Payroll</label>
                   <div class="col-sm-7" >
                     <div class="form-group">
                       <select id="borrower_id" name="borrower_id" class="custom-select">
@@ -66,7 +65,7 @@
 
             <div class="card-body ">
               <div class="row">
-               <label for="guarantor_id" class="col-sm-2 col-form-label">Guarantor ID</label>
+               <label for="guarantor_id" class="col-sm-2 col-form-label">Guarantor's Payroll</label>
                   <div class="col-sm-7" >
                     <div class="form-group">
                       <select id="guarantor_id" name="guarantor_id" class="custom-select">
@@ -83,7 +82,7 @@
   
             <div class="card-body ">
               <div class="row">
-               <label for="type_id" class="col-sm-2 col-form-label">Loan Type ID</label>
+               <label for="type_id" class="col-sm-2 col-form-label">Loan Type</label>
                   <div class="col-sm-7" >
                     <div class="form-group">
                       <select id="type_id" name="type_id" class="custom-select">

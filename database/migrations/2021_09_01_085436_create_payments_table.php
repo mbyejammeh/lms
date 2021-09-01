@@ -23,6 +23,7 @@ class CreatePaymentsTable extends Migration
             $table->timestamps();
         });
     }
+
     /**
      * Reverse the migrations.
      *

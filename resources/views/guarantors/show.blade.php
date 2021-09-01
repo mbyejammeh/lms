@@ -25,14 +25,16 @@
                 <thead class="text-warning">
                   <th>ID</th>
                   <th>Full Name</th>
-                  <th>Guarantor ID</th>
+                  <th>Payroll</th>
+                  <th>Grade</th>
                 </thead>
                 <tbody>
                  
                   <tr>
                     <td>{{ $guarantor->id }}</td>
                     <td>{{ $guarantor->first_name }} {{ $guarantor->middle_name }} {{ $guarantor->last_name }}</td>
-                    <td>{{ $guarantor->grade_id }}</td>
+                    <td>{{ $guarantor->payroll_number }}</td>
+                    <td>{{ $guarantor->grade->name }}</td>
                     <td>
                   </tr>
                  

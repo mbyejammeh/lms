@@ -100,7 +100,6 @@ class TypeController extends Controller
     {
         $type->delete();
 
-       return redirect()->route('types.index')
-                       ->with('success','Loan Type Deleted Successfully');
+       return redirect()->route('types.index')->with('success','Loan Type Deleted Successfully');
     }
 }

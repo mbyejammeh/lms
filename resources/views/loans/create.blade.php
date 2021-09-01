@@ -1,7 +1,7 @@
 @extends('layouts.app', ['activePage' => 'loan', 'titlePage' => __('Add Loan')])
 
 @if ($errors->any())
-    <div class="alert alert-danger">
+    <div class="card card-nav-tabs text-center alert alert-danger">
         <ul>
             @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>
@@ -13,6 +13,12 @@
 @section('content')
   <div class="content">
     <div class="container-fluid">
+      @if ($message = Session::get('warning'))
+      <div class="alert alert-danger">
+          <p>{{ $message }}</p>
+      </div>
+     @endif
+
       <div class="row">
         <div class="col-md-12">
             <form method="post" action="{{ route('loans.store') }}" class="form-horizontal">

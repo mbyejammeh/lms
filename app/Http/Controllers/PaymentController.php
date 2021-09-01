@@ -104,7 +104,6 @@ class PaymentController extends Controller
     {
         $payment->delete();
 
-        return redirect()->route('payments.index')
-                        ->with('success','Payment Deleted Successfully');
+        return redirect()->route('payments.index')->with('success','Payment Deleted Successfully');
     }
 }

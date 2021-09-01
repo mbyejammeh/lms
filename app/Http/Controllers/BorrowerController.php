@@ -54,7 +54,7 @@ class BorrowerController extends Controller
             'address' => 'required',
             'email' => 'nullable|email',
             'employment_date' => 'required',
-            'payroll_number' => 'required',
+            'payroll_number' => 'required|unique:borrowers',
             'designation_id' => 'required',
             'grade_id' => 'required',
         ]);
@@ -105,7 +105,7 @@ class BorrowerController extends Controller
             'address' => 'required',
             'email' => 'nullable',
             'employment_date' => 'required',
-            'payroll_number' => 'required',
+            'payroll_number' => 'required|unique:borrowers',
             'designation_id' => 'required',            
             'grade_id' => 'required', 
         ]);
@@ -125,7 +125,6 @@ class BorrowerController extends Controller
     {
         $borrower->delete();
 
-       return redirect()->route('borrowers.index')
-                       ->with('success','Borrower Deleted Successfully');
+       return redirect()->route('borrowers.index')->with('success','Borrower Deleted Successfully');
     }
 }

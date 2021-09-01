@@ -8,6 +8,8 @@ use App\Models\Borrower;
 use App\Models\Guarantor;
 use Illuminate\Http\Request;
 
+use DB;
+
 class LoanController extends Controller
 {
     /**
@@ -15,34 +17,12 @@ class LoanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-
-
-
     public function index()
-    {
-        
+    { 
         $loans = Loan::all();
         $types = Type::all();
 
-        $a=$b=$c = [];
-        
-        if(empty($loans)){
-            return view('loans.index', compact('a', 'b', 'c'));
-        }
-        foreach ($loans as $loan) {
-            $total_interest = count($loans) > 1 ? ($loan['amount'] * $loan['interest'] * $types[0]['duration']) / 100 : 0;
-            $total_payable = count($loans) > 1 ? $total_interest + $loan['amount'] : 0;
-            $monthly_payable = $total_payable / $types[0]['duration'];
-
-            $loan['total_payable'] = $total_payable;
-            $loan['monthly_payable'] = $monthly_payable;
-
-        }
-//        return loan['interest'];
-        return view('loans.index', compact('loans', 'monthly_payable', 'total_payable'));
-        
-
-
+        return view('loans.index', compact('loans'));
     }
 
     /**
@@ -66,6 +46,20 @@ class LoanController extends Controller
      */
     public function store(Request $request)
     {
+        $types = Type::all();
+
+        $amount = $request->input('amount');
+        $interest = $request->input('interest');
+        $type_id = $request->input('type_id');
+        $borrower_id = $request->input('borrower_id');
+        $guarantor_id = $request->input('guarantor_id');
+
+        $duration = DB::table('types')->where('id', $type_id)->value('duration');
+
+        $total_interest = ($amount * $interest * $duration) / 100;
+        $amount_payable = $total_interest + $amount;
+        $monthly_payable = $amount_payable / $duration;
+       
         $request->validate([
             'amount' => 'required',
             'interest' => 'required',
@@ -73,12 +67,21 @@ class LoanController extends Controller
             'guarantor_id' => 'required',
             'type_id' => 'required',
             'purpose' => 'required',
-            //'status' => 'required',
-        ]);
+        ]); 
 
-        Loan::create($request->all());
+        if (Loan::where('borrower_id', $borrower_id)->where('status', 1)->exists()) {
+            // Borrower Id with the same id and has a Loan with Status Active already exists
+            return redirect()->route('loans.create')->with('warning','Barrower Has an Active Loan');
+         }elseif (Loan::where('guarantor_id', $guarantor_id)->where('status', 1)->exists()){
+             // Guarantor Id with the same id and has Guarantee an Loan with Status Active already exists
+            return redirect()->route('loans.create')->with('warning','Currently Guarateeing an Active Loan');
+         }else{
 
-        return redirect()->route('loans.index')->with('success','Loans Created Successfully.');
+            Loan::create(array_merge($request->all(), ['amount_payable' => $amount_payable, 'monthly_payable' => $monthly_payable]));
+
+            return redirect()->route('loans.index')->with('success','Loans Created Successfully.');
+         }
+
     }
 
     /**
@@ -122,11 +125,7 @@ class LoanController extends Controller
             'guarantor_id' => 'required',
             'type_id' => 'required',
             'purpose' => 'required',
-            /*'status' => 'required',
-            'monthly_payable' => 'required'*/
         ]);
-
-//        $borrower->update($request->all());
 
         return redirect()->route('loans.index')->with('success','Loan Updated Successfully');
     }
@@ -141,23 +140,6 @@ class LoanController extends Controller
     {
         $loan->delete();
 
-       return redirect()->route('loans.index')
-                       ->with('success','Loan Deleted Successfully');
+       return redirect()->route('loans.index')->with('success','Loan Deleted Successfully');
     }
-
-    /*public function calculator()
-    {
-        $loans = Loan::all();
-        $types = Type::all();
-
-        $simple_interest = $amount * $types->$interest * $types->$duration;
-        $payable_amount = $simple_interest + $amount;
-
-        $monthly_payable = $payable_amount / $types->$duration;
-
-
-
-       return redirect()->route('loans.index')
-                       ->with('success','Loan Deleted Successfully');
-    }*/
 }

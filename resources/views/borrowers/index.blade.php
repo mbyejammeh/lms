@@ -6,7 +6,7 @@
   <div class="content">
     <div class="container-fluid"> 
       @if ($message = Session::get('success'))
-        <div class="alert alert-success">
+        <div class="alert alert-success col-md-2">
             <p>{{ $message }}</p>
         </div>
     @endif

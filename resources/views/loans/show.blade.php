@@ -25,10 +25,10 @@
                 <thead class="text-warning">
                   <th>ID</th>
                   <th>Amount</th>
-                  <th>Interest</th>
-                  <th>Borrower ID</th>
-                  <th>Guarantor ID</th>
-                  <th>Type ID</th>
+                  <th>Interest Rate</th>
+                  <th>Borrower's Payroll</th>
+                  <th>Guarantor's Payroll</th>
+                  <th>Loan Type</th>
                   <th>Purpose</th>
                   <th>Total Amount Payable</th>
                   <th>Total Monthly Payable</th>
@@ -40,11 +40,11 @@
                     <td>{{ $loan->id }}</td>
                     <td>{{ $loan->amount }}</td>
                     <td>{{ $loan->interest }}</td>
-                    <td>{{ $loan->borrower_id }}</td>
-                    <td>{{ $loan->guarantor_id }}</td>
-                    <td>{{ $loan->type_id }}</td>
+                    <td>{{ $loan->borrower->payroll_number }}</td>
+                    <td>{{ $loan->guarantor->payroll_number }}</td>
+                    <td>{{ $loan->type->name }}</td>
                     <td>{{ $loan->purpose }}</td>
-                    <td>{{ $loan->payable_amount }}</td>
+                    <td>{{ $loan->total_payable }}</td>
                     <td>{{ $loan->monthly_payable }}</td>
                     <td>{{ $loan->status }}</td>
                     <td>

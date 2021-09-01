@@ -67,7 +67,6 @@ class DesignationController extends Controller
     {
         $designation->delete();
 
-       return redirect()->route('designations.index')
-                       ->with('success','Designation Deleted Successfully');
+       return redirect()->route('designations.index')->with('success','Designation Deleted Successfully');
     }
 }
