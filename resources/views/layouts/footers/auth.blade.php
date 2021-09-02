@@ -9,8 +9,10 @@
   </div>
 </footer>
 
+@push('scripts')
 <script>
-  $(document).ready(function() {
-    $('#data').DataTable();
+$(document).ready( function () {
+  $('#myTable').DataTable();
 } );
-</script>
+  </script>
+@endpush

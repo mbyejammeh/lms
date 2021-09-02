@@ -56,14 +56,14 @@
                       <button type="button" rel="tooltip" title="View" class="btn btn-info">
                         <a href="{{ route('guarantors.show',$guarantor->id) }}"> <i class="material-icons">visibility</i></a>
                       </button>
-                      
+
                       <!-- Button trigger modal -->
-                      <button type="button" rel="tooltip" title="Delete" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">
+                      <button type="button" rel="tooltip" title="Delete" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal-{{ $guarantor->id }}">
                         <i class="material-icons">close</i>
                      </button>
 
                      <!-- Modal -->
-                     <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                     <div class="modal fade" id="deleteModal-{{ $guarantor->id }}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
                        <div class="modal-dialog" role="document">
                          <div class="modal-content">
                            <div class="modal-header">
