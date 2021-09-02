@@ -19,7 +19,10 @@ class CreatePaymentsTable extends Migration
             $table->foreign('loan_id')->references('id')->on('loans')->onDelete('cascade');
             $table->unsignedBigInteger('borrower_id');
             $table->foreign('borrower_id')->references('id')->on('borrowers')->onDelete('cascade');
-            $table->decimal('amount', 10, 2);
+            $table->decimal('amount_payable', 10, 2);
+            $table->decimal('payment', 10, 2);
+            $table->decimal('balance', 10, 2);
+            $table->date('payment_for');
             $table->timestamps();
         });
     }
