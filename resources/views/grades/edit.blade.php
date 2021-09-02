@@ -1,5 +1,8 @@
 @extends('layouts.app', ['activePage' => 'grade', 'titlePage' => __('Edit Grade')])
 
+
+
+@if ($errors->any())
 <div class="card card-nav-tabs text-center alert alert-danger">
     <ul>
         @foreach ($errors->all() as $error)
@@ -8,7 +11,6 @@
     </ul>
 </div>
 @endif
-@if ($errors->any())
 @section('content')
   <div class="content">
     <div class="container-fluid">
