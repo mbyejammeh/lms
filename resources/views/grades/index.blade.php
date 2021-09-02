@@ -1,7 +1,5 @@
 @extends('layouts.app', ['activePage' => 'retrieve', 'titlePage' => __('Retrieve Grades')])
 
-
-
 @section('content')
   <div class="content">
     <div class="container-fluid">
@@ -24,7 +22,7 @@
               <p class="card-category">Salary Scale</p>
             </div>
             <div class="card-body table-responsive">
-              <table class="table table-hover">
+              <table class="table table-hover" id="myTable">
                 <thead class="text-warning">
                   <th>No</th>
                   <th>Grade</th>
@@ -46,12 +44,12 @@
                       </button>
                       
                       <!-- Button trigger modal -->
-                      <button type="button" rel="tooltip" title="Delete" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">
+                      <button type="button" rel="tooltip" title="Delete" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal-{{ $grade->id }}">
                          <i class="material-icons">close</i>
                       </button>
 
                       <!-- Modal -->
-                      <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                      <div class="modal fade" id="deleteModal-{{ $grade->id }}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                           <div class="modal-content">
                             <div class="modal-header">

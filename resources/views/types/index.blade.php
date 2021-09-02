@@ -47,12 +47,12 @@
                       </button> 
 
                       <!-- Button trigger modal -->
-                      <button type="button" rel="tooltip" title="Delete" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">
+                      <button type="button" rel="tooltip" title="Delete" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal-{{ $type->id }}">
                         <i class="material-icons">close</i>
                      </button>
 
                      <!-- Modal -->
-                     <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                     <div class="modal fade" id="deleteModal-{{ $type->id }}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
                        <div class="modal-dialog" role="document">
                          <div class="modal-content">
                            <div class="modal-header">

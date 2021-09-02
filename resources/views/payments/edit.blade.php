@@ -3,7 +3,7 @@
 
 
 @if ($errors->any())
-<div class="card card-nav-tabs text-center  alert alert-danger">
+<div class="card card-nav-tabs text-center alert alert-danger">
     <ul>
         @foreach ($errors->all() as $error)
             <li>{{ $error }}</li>
