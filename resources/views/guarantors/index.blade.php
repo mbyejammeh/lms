@@ -29,7 +29,6 @@
                   <th>Payroll</th>
                   <th>Guarantor's Info</th>
                   <th>Employment Info</th>
-                  <th>Loan Status</th>
                   <th>Action</th>
                 </thead>
                 <tbody>
@@ -48,7 +47,6 @@
                       {{ $guarantor->grade->name }}<br>
                       {{ $guarantor->employment_date }}<br>
                       </td>
-                      <td class="text-danger font-weight-bold"> Has Load </td>
                       <td  class="td-actions">
                         <button type="button" rel="tooltip" title="Edit" class="btn btn-success">
                         <a href="{{ route('guarantors.edit',$guarantor->id) }}"> <i class="material-icons">edit</i></a>
