@@ -26,44 +26,16 @@
 
           <div class="card-body ">
             <div class="row">
-             <label for="loan_id" class="col-sm-2 col-form-label">Loan ID</label>
-                <div class="col-sm-7" >
-                  <div class="form-group">
-                    <select id="loan_id" name="loan_id" class="custom-select">
-                      <!-- Retreive from database -->
-
-                        @foreach($loans as $loan)
-                        <option value="{{$loan->id}}">{{$loan->type_id}}</option>
-                        @endforeach
-                    </select>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="card-body ">
-            <div class="row">
              <label for="borrower_id" class="col-sm-2 col-form-label">Borrower's Payroll</label>
                 <div class="col-sm-7" >
                   <div class="form-group">
                     <select id="borrower_id" name="borrower_id" class="custom-select">
                       <!-- Retreive from database -->
 
-                        @foreach($borrowers as $borrower)
-                        <option value="{{$borrower->id}}">{{$borrower->payroll_number}}</option>
+                        @foreach($loans->where('status', 1) as $loan)
+                        <option value="{{$loan->id}}">{{$loan->borrower->payroll_number}}</option>
                         @endforeach
                     </select>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="card-body ">
-            <div class="row">
-             <label for="amount_payable" class="col-sm-2 col-form-label">Amount Payable</label>
-                <div class="col-sm-7" >
-                  <div class="form-group">
-                  <input id="amount_payable" name="amount_payable" value="{{ $loan->amount}}" placeholder="D1000.00" type="text" class="form-control" readonly>
                 </div>
               </div>
             </div>
@@ -85,7 +57,7 @@
              <label for="payment_for" class="col-sm-2 col-form-label">Payment For</label> 
                 <div class="col-sm-7" >
                   <div class="form-group">
-                  <input id="payment_for" name="payment_for" placeholder="January 2021" type="month" class="form-control" required>
+                  <input id="payment_for" name="payment_for" type="date" class="form-control" required>
                 </div>
               </div>
             </div>

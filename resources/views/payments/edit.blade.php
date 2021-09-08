@@ -28,23 +28,6 @@
 
                 <div class="card-body ">
                   <div class="row">
-                   <label for="loan_id" class="col-sm-2 col-form-label">Loan</label>
-                      <div class="col-sm-7" >
-                        <div class="form-group">
-                          <select id="loan_id" name="loan_id" class="custom-select">
-                            <!-- Retreive from database -->
-      
-                              @foreach($loans as $loan)
-                              <option value="{{$loan->id}}">{{$loan->id->name}}</option>
-                              @endforeach
-                          </select>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="card-body ">
-                  <div class="row">
                    <label for="borrower_id" class="col-sm-2 col-form-label">Borrower's Payroll</label>
                       <div class="col-sm-7" >
                         <div class="form-group">

@@ -6,6 +6,7 @@ use App\Models\Payment;
 use App\Models\Loan;
 use App\Models\Borrower;
 use Illuminate\Http\Request;
+use DB;
 
 class PaymentController extends Controller
 {
@@ -16,7 +17,7 @@ class PaymentController extends Controller
      */
     public function index()
     {
-        $payments = Payment::all();
+        $payments = Payment::all()->sortByDesc("created_at");;
 
         return view('payments.index', compact('payments'));
     }
@@ -41,15 +42,43 @@ class PaymentController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([                  
-            'loan_id' => 'required', 
-            'borrower_id' => 'required', 
-            'amount' => 'required', 
+        $loans = Loan::all();
+        $payments = Payment::all();
+
+        //Form Input values
+        $borrower_id = $request->input('borrower_id');
+        $payment = $request->input('payment');
+        //DB Search Results
+        $amount_payable = DB::table('loans')->where('borrower_id', $borrower_id)->value('amount_payable');
+        $loan_id = DB::table('loans')->where('borrower_id', $borrower_id)->value('id');
+        
+
+        $request->validate([
+            'borrower_id' => 'required',  
+            'payment' => 'required', 
+            'payment_for' => 'required', 
         ]);
 
-        Payment::create($request->all());
+            if (Payment::where('borrower_id', $borrower_id)->exists()) {
+                //Borrower Id with the same id has atleast made a payment
+                $previous_balance = DB::table('payments')->where('borrower_id', $borrower_id)->orderBy('id', 'desc')->value("balance");
+                $balance = $previous_balance - $payment;
+                
+                Payment::create(array_merge($request->all(), ['loan_id' => $loan_id, 'payment' => $payment, 'balance' => $balance]));           
+                //return redirect()->route('payments.index')->with('success','Payment Created Successfully.');                 
+                
+                //Once Payment is Less than or Equals to Zero Update Loans Table Staus to 0 which is complete
+                if ($balance <= 0.00) {
+                    DB::table('loans')->where('borrower_id', $borrower_id)->update(['status' => 0]);
+                    return redirect()->route('payments.index')->with('success','Payment Created Successfully.');                     
+                }
+             }else{ 
+                //Borrower Id with the same id has not made a payment 
+                $balance = $amount_payable - $payment;
 
-        return redirect()->route('payments.index')->with('success','Payment Created Successfully.');
+                Payment::create(array_merge($request->all(), ['loan_id' => $loan_id, 'payment' => $payment, 'balance' => $balance]));  
+                return redirect()->route('payments.index')->with('success','Payment Created Successfully.'); 
+             } 
     }
 
     /**
@@ -84,9 +113,10 @@ class PaymentController extends Controller
     public function update(Request $request, Payment $payment)
     {
         $request->validate([                  
-            'loan_id' => 'required', 
-            'borrower_id' => 'required', 
-            'amount' => 'required', 
+            'borrower_id' => 'required',  
+            'payment' => 'required', 
+            'balance' => 'required', 
+            'payment_for' => 'required' 
         ]);
 
         $payment->update($request->all());

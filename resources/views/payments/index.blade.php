@@ -25,25 +25,23 @@
             <div class="card-body table-responsive">
               <table class="table table-hover">
                 <thead class="text-warning">
-                  <th>No</th>
-                  <th>Loan ID</th>
-                  <th>Borrower ID</th>
-                  <th>Amount</th>                 
-                  <th>Total Amount Payable</th>
-                  <th>Total Monthly Payment</th>
+                  <th>Name</th>
+                  <th>Borrower's Payroll</th>
+                  <th>Amount</th> 
+                  <th>Payment</th>
                   <th>Balance</th>
+                  <th>Payment For</th>
                   <th>Action</th>
                 </thead>
                 <tbody>
                 @foreach ($payments as $payment)
-                  <tr>                 
-                    <td>Numbering</td>
-                    <td>{{ $payment->loan_id }}</td>
-                    <td>{{ $payment->borrower_id }}</td>
-                    <td>{{ $payment->amount }}</td>
-                    <td>{{ $payment->total_amount_payable }}</td>
-                    <td>{{ $payment->total_monthly_payment}}</td>
+                  <tr> 
+                    <td>{{ $payment->borrower->first_name }} {{ $payment->borrower->middle_name }} {{ $payment->borrower->last_name }}</td>
+                    <td>{{ $payment->borrower->payroll_number }}</td>
+                    <td>{{ $payment->loan->amount_payable }}</td> 
+                    <td>{{ $payment->payment}}</td>
                     <td>{{ $payment->balance}}</td>
+                    <td>{{ $payment->payment_for}}</td>
                     <td  class="td-actions">
                       <button type="button" rel="tooltip" title="Edit" class="btn btn-success">
                         <a href="{{ route('payments.edit',$payment->id) }}"> <i class="material-icons">edit</i></a>
