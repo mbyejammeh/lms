@@ -36,7 +36,7 @@
                   <tr>
                     <td>{{ $payment->id }}</td>
                     <td>{{ $payment->loan_id }}</td>
-                    <td>{{ $payment->borrower_id }}</td>
+                    <td>{{ $payment->borrower->payroll_number }}</td>
                     <td>{{ $payment->amount }}</td>
                     <td>{{ $payment->payable_amount }}</td>
                     <td>{{ $payment->monthly_payment }}</td>
