@@ -55,7 +55,7 @@
                         <!-- Retreive from database -->
   
                           @foreach($borrowers as $borrower)
-                          <option value="{{$borrower->id}}">{{$borrower->payroll_number}}</option>
+                          <option value="{{$borrower->id}}" {{ $borrower->id == $loan->borrower_id ? 'selected' : '' }} >{{$borrower->payroll_number}}</option>
                           @endforeach
                       </select>
                   </div>
@@ -72,7 +72,7 @@
                         <!-- Retreive from database -->
   
                           @foreach($guarantors as $guarantor)
-                          <option value="{{$guarantor->id}}">{{$guarantor->payroll_number}}</option>
+                          <option value="{{$guarantor->id}}" {{ $guarantor->id == $loan->guarantor_id ? 'selected' : '' }} >{{$guarantor->payroll_number}}</option>
                           @endforeach
                       </select>
                   </div>
@@ -89,7 +89,7 @@
                         <!-- Retreive from database -->
   
                           @foreach($types as $type)
-                          <option value="{{$type->id}}">{{$type->name}}</option>
+                         <option value="{{$type->id}}" {{ $type->id == $loan->type_id ? 'selected' : '' }} >{{$type->name}}</option>
                           @endforeach
                       </select>
                   </div>
