@@ -80,7 +80,9 @@ class GuarantorController extends Controller
      */
     public function edit(Guarantor $guarantor)
     {
-        return view('guarantors.edit',compact('guarantor'));
+        $grades = Grade::all();
+        $designations = Designation::all();
+        return view('guarantors.edit',compact('guarantor', 'designations', 'grades'));
     }
 
     /**
@@ -102,7 +104,7 @@ class GuarantorController extends Controller
             'address' => 'required',
             'email' => 'nullable',
             'employment_date' => 'required',
-            'payroll_number' => 'required|unique:guarantors',
+            'payroll_number' => 'required',
             'designation_id' => 'required',            
             'grade_id' => 'required'
         ]);

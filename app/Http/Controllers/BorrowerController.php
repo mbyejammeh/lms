@@ -83,7 +83,9 @@ class BorrowerController extends Controller
      */
     public function edit(Borrower $borrower)
     {
-        return view('borrowers.edit',compact('borrower'));
+        $grades = Grade::all();
+        $designations = Designation::all();
+        return view('borrowers.edit',compact('borrower', 'designations', 'grades'));
     }
 
     /**
@@ -105,7 +107,7 @@ class BorrowerController extends Controller
             'address' => 'required',
             'email' => 'nullable',
             'employment_date' => 'required',
-            'payroll_number' => 'required|unique:borrowers',
+            'payroll_number' => 'required',
             'designation_id' => 'required',            
             'grade_id' => 'required', 
         ]);

@@ -120,7 +120,7 @@
 
           <div class="card-body ">
             <div class="row">
-             <label for="payroll_number" class="col-sm-2 col-form-label">Payroll</label>
+             <label for="payroll_number" class="col-sm-2 col-form-label">Payroll Number</label>
                 <div class="col-sm-7" >
                   <div class="form-group">
                   <input id="payroll_number" name="payroll_number" placeholder="123456" type="number" class="form-control" required>
@@ -131,7 +131,7 @@
 
           <div class="card-body ">
             <div class="row">
-             <label for="designation_id" class="col-sm-2 col-form-label">Designation ID</label>
+             <label for="designation_id" class="col-sm-2 col-form-label">Designation</label>
                 <div class="col-sm-7" >
                   <div class="form-group">
                       <select id="designation_id" name="designation_id" class="custom-select">
@@ -148,7 +148,7 @@
 
           <div class="card-body ">
             <div class="row">
-             <label for="grade_id" class="col-sm-2 col-form-label">Grade ID</label>
+             <label for="grade_id" class="col-sm-2 col-form-label">Grade</label>
 
                 <div class="col-sm-7" >
                   <div class="form-group">

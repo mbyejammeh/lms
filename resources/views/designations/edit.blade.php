@@ -33,7 +33,7 @@
                                     <!-- Retreive from database -->
 
                                     @foreach($grades as $grade)
-                                        <option value="{{$grade->id}}">{{$grade->name}}</option>
+                                        <option value="{{$grade->id}}" {{ $grade->id == $designation->grade_id ? 'selected' : '' }} >{{$grade->name}}</option>
                                     @endforeach
                                 </select>
                             </div>

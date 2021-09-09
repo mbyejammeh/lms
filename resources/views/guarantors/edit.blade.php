@@ -120,7 +120,7 @@
 
           <div class="card-body ">
             <div class="row">
-             <label for="payroll_number" class="col-sm-2 col-form-label">Payroll</label> 
+             <label for="payroll_number" class="col-sm-2 col-form-label">Payroll Number</label> 
                 <div class="col-sm-7" >
                   <div class="form-group">
                   <input id="payroll_number" name="payroll_number"  value="{{ $guarantor->payroll_number}}" placeholder="123456" type="number" class="form-control" required>
@@ -131,10 +131,16 @@
 
           <div class="card-body ">
             <div class="row">
-             <label for="designation_id" class="col-sm-2 col-form-label">Designation</label> 
+             <label for="designation_id" class="col-sm-2 col-form-label">Designation</label>
                 <div class="col-sm-7" >
                   <div class="form-group">
-                  <input id="designation_id" name="designation_id"  value="{{ $guarantor->designation_id}}" placeholder="123456" type="text" class="form-control" required>
+                      <select id="designation_id" name="designation_id" class="custom-select">
+                        <!-- Retreive from database -->
+
+                          @foreach($designations as $designation)
+                          <option value="{{$designation->id}}" {{ $designation->id == $guarantor->designation_id ? 'selected' : '' }} >{{$designation->name}}</option>
+                          @endforeach
+                      </select>
                 </div>
               </div>
             </div>
@@ -142,15 +148,21 @@
 
           <div class="card-body ">
             <div class="row">
-             <label for="grade_id" class="col-sm-2 col-form-label">Grade</label> 
+             <label for="grade_id" class="col-sm-2 col-form-label">Grade</label>
+
                 <div class="col-sm-7" >
                   <div class="form-group">
-                  <input id="grade_id" name="grade_id" value="{{ $guarantor->grade_id}}" placeholder="Senior ICT Officer" type="text" class="form-control" required>
+                    <select id="grade_id" name="grade_id" class="custom-select">
+                      <!-- Retreive from database -->
+
+                        @foreach($grades as $grade)
+                        <option value="{{$grade->id}}" {{ $grade->id == $guarantor->grade_id ? 'selected' : '' }} >{{$grade->name}}</option>
+                        @endforeach
+                    </select>
                 </div>
               </div>
             </div>
           </div>
-<!-- Retreive from database in a dropdown would be the best--> 
 
               <div class="card-footer ml-auto mr-auto">
                 <button type="submit" class="btn btn-primary">{{ __('Update Guarantor') }}</button>

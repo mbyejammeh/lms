@@ -118,6 +118,20 @@ class LoanController extends Controller
      */
     public function update(Request $request, Loan $loan)
     {
+        $types = Type::all();
+
+        $amount = $request->input('amount');
+        $interest = $request->input('interest');
+        $type_id = $request->input('type_id');
+        $borrower_id = $request->input('borrower_id');
+        $guarantor_id = $request->input('guarantor_id');
+
+        $duration = DB::table('types')->where('id', $type_id)->value('duration');
+
+        $total_interest = ($amount * $interest * $duration) / 100;
+        $amount_payable = $total_interest + $amount;
+        $monthly_payable = $amount_payable / $duration;
+
         $request->validate([
             'amount' => 'required',
             'interest' => 'required',
@@ -127,7 +141,10 @@ class LoanController extends Controller
             'purpose' => 'required',
         ]);
 
+        $loan->update(array_merge($request->all(), ['amount_payable' => $amount_payable, 'monthly_payable' => $monthly_payable]));
+
         return redirect()->route('loans.index')->with('success','Loan Updated Successfully');
+         
     }
 
     /**
